@@ -4,5 +4,18 @@ The project QuizArt is developed by:
 - [Federico Inserra](https://www.linkedin.com/in/federico-inserra-a99260169/)
 - [Flavia Masoni](https://www.linkedin.com/in/flavia-masoni/)
 - [Leonardo Razovic](https://www.linkedin.com/in/leonardo-razovic-4b20b1121/)
-## The Idea (prima Bozza)
-The idea of this project is to make a museum more valuable by adding a new user experience. This experience includes a quiz that is about Casts that are displayed in each room of the museum. In each room the application shows a different question about some sculpture and for each right answer the player gains some points. This project is developed with beacons and Google Cloud platform. 
+
+## The Idea
+
+The aim of this project is to add more interactivity to the museum in order to involve visitors more during the visit and to allow the museum curators to get useful information about the most interesting rooms.
+
+The idea is to create an application for smartphones that allows users to perform quizzes with questions related to the room they are in at that moment, for every correct answer the user gains point and, at the end, can see the ranking of the visitors.
+The app will receive information about the current room from Bluetooth devices located inside the museum and will communicate with the cloud infrastructure to receive questions and update the user on the overall ranking.
+Moreover, we can use the data, such as the time spent in a certain room, to give to the museum curators which are the rooms tht users are most interested in. 
+This data will be displayed on a dashboard accessible through an URL.
+
+
+
+
+
+
