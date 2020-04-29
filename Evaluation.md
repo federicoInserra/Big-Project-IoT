@@ -23,6 +23,8 @@ Our goal is that at least 60% of the users who answer the questionnaire give us 
 
 Another way to evaluate the app is to do test with some users using mockup, in this way, we can decide if the interface we designed is usable or if we made mistakes in the design phase.
 
+Also the opinion of the curator of the museum is important, so we would like to test our app with them to get their opinions about both the quiz and the dashboard that will show the statistics of the museum.
+
 ## Optional KPIs
 We have also thought about other possible KPIs, but they can only be evaluated if the app is developed and integrated into the museum.
 
@@ -78,6 +80,7 @@ Cost is another key parameter to take into account for a successful application.
 An elevated cost for maintaining the infrastructure could not be sustainable by the museum.
 We think that a cost of less than 10€ per month is necessary to guarantee the management of the infrastructure to the museum without problems.
 We have estimated that the total cost of maintaining the database and the server to manage the requests using the Google cloud platform will be around 7€ per month.
+There is also the cost for the board with the bluetooth device, that should be around 30€ per board.
 
 ### How to evaluate architecture
 Given the current situation, we have decided that we can simulate the operation of our application using a board on IoT lab.
