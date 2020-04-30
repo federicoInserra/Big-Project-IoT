@@ -45,7 +45,7 @@ On Google platform we use:
 The beacon is made of two components:
 
 - An STM32 board, the [STM NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
-- A Bluetooth Low Energy expansion module, like the [X-NUCLEO-IDB05A1](https://www.st.com/en/ecosystems/x-nucleo-idb05a1.html) capable of transmitting packets following the iBeacon or Eddystone fromat.
+- A Bluetooth Low Energy expansion module, like the [X-NUCLEO-IDB05A1](https://www.st.com/en/ecosystems/x-nucleo-idb05a1.html) capable of transmitting packets following the iBeacon or Eddystone format.
 
 ### Option 2
 
