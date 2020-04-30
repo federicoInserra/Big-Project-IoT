@@ -1,6 +1,4 @@
-# Big-Project-IoT
-
-## QuizArt
+# QuizArt
 
 The project QuizArt is developed by:
 
@@ -16,3 +14,7 @@ The idea is to create an application for smartphones that allows users to perfor
 The app will receive information about the current room from Bluetooth devices located inside the museum and will communicate with the cloud infrastructure to receive questions and update the user on the overall ranking.
 Moreover, we can use the data, such as the time spent in a certain room, to give to the museum curators which are the rooms tht users are most interested in.
 This data will be displayed on a dashboard accessible through an URL.
+
+- [Design document](/Design.md)
+- [Architecture document](/Architecture.md)
+- [Evaluation document](/Evaluation.md)
