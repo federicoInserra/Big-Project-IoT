@@ -42,8 +42,10 @@ On Google platform we use:
 
 ### Option 1
 
-- Board [STM NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
-- [X-NUCLEO-IDB05A1](https://www.st.com/en/ecosystems/x-nucleo-idb05a1.html) Bluetooth Low Energy expansion board
+The beacon is made of two components:
+
+- An STM32 board, the [STM NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
+- A Bluetooth Low Energy expansion module, like the [X-NUCLEO-IDB05A1](https://www.st.com/en/ecosystems/x-nucleo-idb05a1.html) capable of transmitting packets following the iBeacon or Eddystone fromat.
 
 ### Option 2
 
@@ -56,3 +58,5 @@ On Google platform we use:
 ## High-level scheme
 
 IoT Board <--BLE--> Smartphone <--HTTPS/MQTT--> Google Pub/Sub <--HTTPS--> Google Cloud Function <--HTTPS--> Google Cloud SQL <--HTTPS--> Google Data Studio
+
+![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch.png)\

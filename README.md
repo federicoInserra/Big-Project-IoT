@@ -6,6 +6,8 @@ The project QuizMuseum is developed by:
 - [Flavia Masoni](https://www.linkedin.com/in/flavia-masoni/)
 - [Leonardo Razovic](https://www.linkedin.com/in/leonardo-razovic-4b20b1121/)
 
+With the help of [Elisa L'Angiocola](https://www.linkedin.com/in/elisa-l-angiocola-57a69353)
+
 ## The Idea
 
 The aim of this project is to add more interactivity to the museum in order to involve visitors more during the visit and to allow the museum curators to get useful information about the most interesting rooms.
@@ -18,5 +20,6 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Design document](/Design.md)
 - [Architecture document](/Architecture.md)
 - [Evaluation document](/Evaluation.md)
-- [The presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
-- [The presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
+- [The video presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
+- [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
+- [Presentation of the project](https://docs.google.com/presentation/d/1EXZypYZ0uCAltlGvUrAoHb4xfpCnDxEpM-Q-yBL6kMw/edit?usp=sharing)
