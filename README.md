@@ -1,6 +1,6 @@
-# QuizArt
+# QuizMuseum
 
-The project QuizArt is developed by:
+The project QuizMuseum is developed by:
 
 - [Federico Inserra](https://www.linkedin.com/in/federico-inserra-a99260169/)
 - [Flavia Masoni](https://www.linkedin.com/in/flavia-masoni/)

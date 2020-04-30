@@ -1,6 +1,6 @@
 # Design
 
-The idea of NomeApp is to create a valuable experience for young museum visitors. Teenagers are usually less engaged during a visit inside a museum, so we focused on creating an app that will entertain them. The app is an interactive quiz. Every time a person enters a room, the application exposes a question about some art pieces of the room. If the answer is correct, the player gains some points. After the solution, the player will get a brief explanation of the question so he/she can learn more about a specific sculpture. When the visit is over, players can confront their scores and see who is the highest in the final rank.
+The idea of QuizMuseum is to create a valuable experience for young museum visitors. Teenagers are usually less engaged during a visit inside a museum, so we focused on creating an app that will entertain them. The app is an interactive quiz. Every time a person enters a room, the application exposes a question about some art pieces of the room. If the answer is correct, the player gains some points. After the solution, the player will get a brief explanation of the question so he/she can learn more about a specific sculpture. When the visit is over, players can confront their scores and see who is the highest in the final rank.
 
 ## Personas
 
@@ -26,6 +26,10 @@ Alice doesn't like to study very much, she is a student at the Liceo Artistico i
 
 Gabriele visits the museum with the school and starts to play when he gets inside the museum. His final aim is to defeat his classmates plus to get all the answers right. To reach his goal, Gabriele spends additional time in each room to learn the most for each statue. By doing this, he will be able to answer correctly to any question. In the end, he looks at his score, and once again, he got everything right so he can exit the museum entertained and amused.
 
+![Storyboard1](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/story2.png)
+
 ## Scenario 2
 
 Alice is miserable because she has to study for her final exam in high school, for which she has to craft a sculpture. If she fails the exam, she has to repeat her final year of high school. The sculpture she has to craft is a classical statue. After the sculpting, she needs to do an oral exam to explain why she chose that cast and the story of it. She should go to the museum to search for some inspiration, but she always gets bored in museums. Alice finds out that, inside the Sapienza museum, she can play a new game that will test her knowledge of classical art. She goes there and starts exploring while playing the game. When she answers, the App gives a brief explanation of the sculpture. Once she leaves the museum, she discovered inspiration and learned something new.
+![Storyboard2](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/story1.png)
+
