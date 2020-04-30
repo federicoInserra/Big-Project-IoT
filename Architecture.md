@@ -1,6 +1,6 @@
 # Architecture
 
-## Smartphone App
+## End-user component: a Smartphone App
 
 The application receives the messages sent by Beacons (using Bluetooth LE) and understands the room in which it is.
 The App sends a message **A** (JSON) to Google Cloud Platform (using HTTPS). The message contains:
@@ -38,17 +38,21 @@ On Google platform we use:
 - [Google Cloud SQL](https://cloud.google.com/sql/): to manage **relational** databases. It is a Server with low latency.
 - [Google Data Studio](https://datastudio.google.com/): Data visualisation platform that allows selecting Google BigQuery as input to have data for each message published on topic T.
 
-## The Things
+## Internet of Things elements
 
-### Opzione 1
+### Option 1
 
 - Board [STM NUCLEO-F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html)
 - [X-NUCLEO-IDB05A1](https://www.st.com/en/ecosystems/x-nucleo-idb05a1.html) Bluetooth Low Energy expansion board
 
-### Opzione 2
+### Option 2
 
-Board [nRF52DK](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52-DK) **on Iotlab** for testing.
+- Board [nRF52DK](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52-DK) **on FIT/IoT-LAB** for testing.
 
-### Opzione 3
+### Option 3
 
-[Estimote Proximity Beacons](https://estimote.com/)
+- [Estimote Proximity Beacons](https://estimote.com/)
+
+## High-level scheme
+
+IoT Board <--BLE--> Smartphone <--HTTPS/MQTT--> Google Pub/Sub <--HTTPS--> Google Cloud Function <--HTTPS--> Google Cloud SQL <--HTTPS--> Google Data Studio
