@@ -23,3 +23,5 @@ This data will be displayed on a dashboard accessible through an URL.
 - [The video presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
 - [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
 - [Presentation of the project](https://docs.google.com/presentation/d/1EXZypYZ0uCAltlGvUrAoHb4xfpCnDxEpM-Q-yBL6kMw/edit?usp=sharing)
+- [Evaluation form](https://lrazovic.typeform.com/to/UzEcbW)
+- [Evaluation results]()
