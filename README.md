@@ -18,3 +18,5 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Design document](/Design.md)
 - [Architecture document](/Architecture.md)
 - [Evaluation document](/Evaluation.md)
+- [The presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
+- [The presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
