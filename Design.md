@@ -6,7 +6,7 @@ The idea of HyperColor is to show the real color of a statue inside a museum usi
 ![Mario](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Mario.png)\
 
 
-![Melinda](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Melinda.png)\
+![Melinda](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Melinda%20.png)\
 
 
 ## Scenario 1
