@@ -1,16 +1,10 @@
 # Design
 
-The idea of QuizMuseum is to create a valuable experience for young museum visitors. Teenagers are usually less engaged during a visit inside a museum, so we focused on creating an app that will entertain them. The app is an interactive quiz. Every time a person enters a room, the application exposes a question about some art pieces of the room. If the answer is correct, the player gains some points. After the solution, the player will get a brief explanation of the question so he/she can learn more about a specific sculpture. When the visit is over, players can confront their scores and see who is the highest in the final rank.
-
+The idea of HyperColor is to show the real color of a statue inside a museum using an ologram. When a person enters the room can  
 ## Personas
 
-![Gabriele, 17 y.o. form Rome](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/persona1.jpg)\
-Name: Gabriele\
-Age: 17\
-City: Rome\
-Profession: Student\
-Gabriele is an only child that lives with his parents in Rome, his father is a doctor and his mother is a stay at home mom.
-Gabriele is the best student in his school, he is intelligent and loves to study. He spends his free time playing video games and practicing Judo. Gabriele aspires to become a Politician, and he’s terrified about failure. He attends the Liceo Classico and loves to get the attention of his teachers and classmates. Gabriele is ambitious and wants to demonstrate to his teacher that he studied for the Museo dell'arte classica visit. He doesn't fancy calssical art. He is usually a calm person but when the competition starts, nothing can stop him. Gabriele visits from 3 to 6 museums per year with the school.
+![Mario](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Mario.png)\
+
 
 ![Alice](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/persona2.jpg)\
  Name: Alice\
