@@ -26,7 +26,7 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Evaluation form](https://lrazovic.typeform.com/to/UzEcbW)
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
 ## Second Delivery Documents
-- [Design document](/Design.md)
+- [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/Architecture.md)
 - [Evaluation document](/Evaluation.md)
 - [The video presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
