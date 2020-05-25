@@ -20,10 +20,12 @@ The board has a wifi module that allows the connection to the internet. We expec
 ## High-level scheme
 Smartphone  <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> IoT Board\
 
-![Architecture]()\
+![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch1.png)\
 
 # Evaluation Architecture
 Due to lack of resources we are going to try the code on a different architecture. The first part of the archiecture is the same, we have a smartphone application that writes on an NFC tag on the board and the board publishes a JSON message on the MQTT topic. The AWS reads this message and sends the image to a raspberry pi board. The aspberry pi is connected to a display and here we will see the image. 
 ## High-level scheme
 Smartphone  <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> Raspberry Pi\
-![Architecture]()\
+![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch2.png)\
+
+Here you can find the old architecture version [Old document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/1stDelivery/Architecture.md)

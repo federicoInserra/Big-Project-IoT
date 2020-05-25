@@ -18,8 +18,8 @@ Moreover, we can use the data, such as the time spent in a certain room, to give
 This data will be displayed on a dashboard accessible through an URL.
 ## First Delivery Documents
 - [Design document](/1stDelivery/Design.md)
-- [Architecture document](/Architecture.md)
-- [Evaluation document](/Evaluation.md)
+- [Architecture document](/1stDelivery/Architecture.md)
+- [Evaluation document](/1stDelivery/Evaluation.md)
 - [The video presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
 - [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
 - [Presentation of the project](https://docs.google.com/presentation/d/1EXZypYZ0uCAltlGvUrAoHb4xfpCnDxEpM-Q-yBL6kMw/edit?usp=sharing)
@@ -27,8 +27,8 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
 ## Second Delivery Documents
 - [Design document](/2ndDelivery/Design.md)
-- [Architecture document](/Architecture.md)
-- [Evaluation document](/Evaluation.md)
+- [Architecture document](/2ndDelivery/Architecture.md)
+- [Evaluation document](/2ndDelivery/Evaluation.md)
 - [The video presentation of the product and the evaluation plan](https://www.youtube.com/watch?v=L3qy94uKGkU&feature=youtu.be)
 - [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=IcLEndSx2t4&feature=youtu.be)
 - [Presentation of the project](https://docs.google.com/presentation/d/1EXZypYZ0uCAltlGvUrAoHb4xfpCnDxEpM-Q-yBL6kMw/edit?usp=sharing)
