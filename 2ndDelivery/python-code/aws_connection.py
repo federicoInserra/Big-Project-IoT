@@ -6,7 +6,7 @@ import time
 import json
 import datetime
 import random
-
+import PIL as Image
 
 # Path for essential files
 ROOT_CA = r"rootCa path"
@@ -46,6 +46,14 @@ def start_connection(topic, payload):
     myMQTTClient.subscribe(topic, 1, customCallback)
 
     return myMQTTClient
+#Open the image
+def ImageReader(path)
+    try: 
+        img = Image.open(path)
+        img.show()
+    except IOError: 
+        pass
+    return 
 
 
 if __name__ == "__main__":
