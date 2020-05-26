@@ -12,7 +12,7 @@ When the board read the tag, it checks the code and sends a message over MQTT to
 
 ## Cloud Infrastructure on Amazon Web Services
 
-The cloud infrastructure is an MQTT broker that subscribes to the topic of the statue and publishes on another topic over the MQTT protocol.
+The Cloud Infrastructure is on AWS. We use AWS IoT's MQTT broker to manage the communication between the boards.
 
 We use the cloud infratructure for two main purposes:
 
@@ -21,22 +21,31 @@ We use the cloud infratructure for two main purposes:
 
 ## Internet of Things elements
 
-The Internet of things element is an STM32 Nucleo Board. The board has an NFC tag reader that is activated through the smartphone application.
-The board has a wifi module that allows the connection to the internet. We expect to connect a display to the board to show the images of the statues.
+The Internet of Things element is an STM32 Nucleo Board. The board has an NFC tag reader that is activated through an NFC tag or a Smartphone with the NFC module.
+The board has a Wi-Fi module that allows the connection to the internet. We expect to connect a display to the board to show the images of the statues.
 
 ## High-level scheme
 
-Object with Nfc Tag <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> IoT Board\
+Object with NFC Tag <--NFC--> STM32 Board <--MQTT--> AWS <--MQTT --> STM32 Board
 
 ![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch1.png)\
 
 # Evaluation Architecture
 
-Due to lack of resources we are going to try the code on a different architecture. The first part of the archiecture is the same, we have a smartphone application, instead of objects, that writes on an NFC tag on the board and the board publishes a JSON message on the MQTT topic. The AWS reads this message and sends the image to a raspberry pi board. The raspberry pi is connected to a display that will show the image.
+Due to lack of resources we are going to try the code on a different architecture. The first part of the archiecture is the same, but we have a smartphone application, instead of objects, that writes on the NFC tag on the board and the board publishes a message on the MQTT topic containing the tect record of the NFC tag. AWS IoT receive this message, and the Raspberry Pi that is subsribed to the topic receive the message sent from the STM32 board. The Raspberry Pi is connected to a display that will show the image that has as identifier the message received. If the image is not present locally a request to AWS is perfomed asking for the image, as soon the image arrives it is saved and then it's shown.
+
+The board that we used is the [STM32 B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html).
+For our purpose, the most important features are:
+
+* A Cortex M4 core
+* Dynamic NFC tag based on M24SR
+* ISM43362 Wi-Fi module 
+
+Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we can't use an object with an NFC tag on it, but we have to use a Smartphone that can act as reader/writer to write on the NFC EEPROM.
 
 ## High-level scheme
 
-Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> Raspberry Pi\
+Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> Raspberry Pi + Display
 ![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch2.png)\
 
 Here you can find the old architecture version [Old document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/1stDelivery/Architecture.md)
