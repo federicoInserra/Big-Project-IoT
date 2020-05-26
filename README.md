@@ -16,7 +16,9 @@ The idea is to create an application for smartphones that allows users to perfor
 The app will receive information about the current room from Bluetooth devices located inside the museum and will communicate with the cloud infrastructure to receive questions and update the user on the overall ranking.
 Moreover, we can use the data, such as the time spent in a certain room, to give to the museum curators which are the rooms tht users are most interested in.
 This data will be displayed on a dashboard accessible through an URL.
+
 ## First Delivery Documents
+
 - [Design document](/1stDelivery/Design.md)
 - [Architecture document](/1stDelivery/Architecture.md)
 - [Evaluation document](/1stDelivery/Evaluation.md)
@@ -25,7 +27,9 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Presentation of the project](https://docs.google.com/presentation/d/1EXZypYZ0uCAltlGvUrAoHb4xfpCnDxEpM-Q-yBL6kMw/edit?usp=sharing)
 - [Evaluation form](https://lrazovic.typeform.com/to/UzEcbW)
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
+
 ## Second Delivery Documents
+
 - [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/2ndDelivery/Architecture.md)
 - [Evaluation document](/2ndDelivery/Evaluation.md)
