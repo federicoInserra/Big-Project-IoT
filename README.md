@@ -35,4 +35,4 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Evaluation document](/2ndDelivery/Evaluation.md)
 - [The video presentation of the product and the evaluation plan]()
 - [The video presentation of the technical approach and architecture]()
-- [Presentation of the project]()
+- [The presentation of the future plans for technical development and evaluation ](https://youtu.be/5lAtW3QW4jg)
