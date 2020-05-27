@@ -22,7 +22,7 @@ From a technical point of view we want to evaluate two fundamental parameters: t
 ### Cost of the system
 The cost is estimated by calculating the cost of the NFC board and sensors and the approximate monthly cost of managing the cloud infrastructure with aws.
 
-Unfortunately in our simulation we were not able to use a board that had a display so we simulated the display of the board with a raspberry pi that as soon as it received the signal from the board showed the image on the screen. For this reason the total cost of the simulation is higher than the cost of a single board with nfc and integrated screen.
+Unfortunately in our simulation we were not able to use a board that had a display so we simulated the display of the board with a raspberry pi that as soon as it received the signal from the board showed the image on the screen.
 
 
 Cost simulation:
