@@ -29,7 +29,7 @@ This data will be displayed on a dashboard accessible through an URL.
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
 
 ## Second Delivery Documents
-
+- [Second Delivery](/2ndDelivery/README.md)
 - [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/2ndDelivery/Architecture.md)
 - [Evaluation document](/2ndDelivery/Evaluation.md)
