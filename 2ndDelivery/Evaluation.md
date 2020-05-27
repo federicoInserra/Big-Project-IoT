@@ -8,6 +8,95 @@ We have chosen to use holograms because we think it is an uncommon experience th
 
 
 ### How to evaluate our system
+First of all we did short interviews with users to see if using holograms would be fun.
+From these interviews we found out that users think that holograms would enrich the visit a lot.
+Also, most of them didn't know that the statues were originally colored.
+Almost all of the users would like to solve puzzles to make the hologram appear
+
+### Interviews
+#### Questions
+<pre>
+1) Are you interested in art?
+2) How often do you visit a museum annually?
+3) Did you know that originally the statues were colored and not white as they are now?
+4) Would you like to see a reconstruction of the statues as they were originally? (so with colors and all the missing parts)?
+5) Do you know what a hologram is?
+6) Do you think you'd like to visit a museum more if in addition to seeing the ancient statues, you could see a hologram that
+  represents the statues in their original shape and colors?
+7) Would you find the visit more interesting if there were riddles to solve to show the hologram?
+
+</pre>
+#### Answers
+
+##### User 1
+<pre>
+1) yes, pretty much
+2) 2/3 times for year
+3) No
+4) Yes
+5) Yes
+6) Yes
+7) Yes
+</pre>
+
+##### User 2
+<pre>
+1) yes
+2) 1/2 times for year
+3) No, I didn't know
+4) Yes, I'd like that.
+5) More or less
+6) Yes
+7) Yes
+</pre>
+
+
+##### User 3
+<pre>
+1) yes, pretty much
+2) 1 time for year
+3) No, I didn't know
+4) Yes, a lot
+5) Yes
+6) Absolutely Yes
+7) Yes a lot
+</pre>
+
+##### User 4
+<pre>
+1) Not much
+2) 0
+3) Nope
+4) yes
+5) Yes
+6) Yeah, I think it would be fun.
+7) No, I think it's a bit challenging, if I can't find the right object after a while I get tired of it.
+</pre>
+
+##### User 5
+<pre>
+1) I'm mainly interested in classical art
+2) Depends on exhibitions in general 2/3 times a year
+3) I had no idea
+4) yes
+5) Yes
+6) I think it would really enrich the visit
+7) Yeah, I think it would be fun.
+</pre>
+
+##### User 6
+<pre>
+1) yes
+2) 8 times for year
+3) Yes, I knew it.
+4) I'd love to
+5) Yes, I know it
+6) Yes
+7) Yes
+</pre>
+
+
+### Tests
 We have decided that in order to evaluate our system from a user experience point of view we will test it with real users.
 In the meantime we will ask them questions about the experience and the actions they are doing to understand their emotions while using the system and if there are problems using it.
 By doing the tests we will accumulate data and tips on user behavior that will allow us to further improve the experience.
