@@ -1,6 +1,6 @@
 # QuizMuseum
 
-The project QuizMuseum is developed by:
+The project CastGram is developed by:
 
 - [Federico Inserra](https://www.linkedin.com/in/federico-inserra-a99260169/)
 - [Flavia Masoni](https://www.linkedin.com/in/flavia-masoni/)
@@ -12,10 +12,12 @@ With the help of [Elisa L'Angiocola](https://www.linkedin.com/in/elisa-l-angioco
 
 The aim of this project is to add more interactivity to the museum in order to involve visitors more during the visit and to allow the museum curators to get useful information about the most interesting rooms.
 
-The idea is to create an application for smartphones that allows users to perform quizzes with questions related to the room they are in at that moment, for every correct answer the user gains point and, at the end, can see the ranking of the visitors.
-The app will receive information about the current room from Bluetooth devices located inside the museum and will communicate with the cloud infrastructure to receive questions and update the user on the overall ranking.
-Moreover, we can use the data, such as the time spent in a certain room, to give to the museum curators which are the rooms tht users are most interested in.
+
+
+The idea is to create a system that through the NFC activates the display of the board and an hologram comes out with a colorized statue. The interaction of users with the statue could be useful for museum curators to valuate the engagement os a certain statue. 
 This data will be displayed on a dashboard accessible through an URL.
+
+The board uses the MQTT protocol to communicate with the cloud infrastructure and when receives the data it will show the image of the hologram. 
 
 ## First Delivery Documents
 

@@ -48,4 +48,5 @@ Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we c
 Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT --> Raspberry Pi + Display
 ![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch2.png)\
 
+## Old Document
 Here you can find the old architecture version [Old document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/1stDelivery/Architecture.md)
