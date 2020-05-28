@@ -31,7 +31,7 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
 
 ## Second Delivery Documents
-- [Second Delivery](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/2nd%20delivery.md)
+- [Second Delivery Document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/2nd%20delivery.md)
 - [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/2ndDelivery/Architecture.md)
 - [Evaluation document](/2ndDelivery/Evaluation.md)
