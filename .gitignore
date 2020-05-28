@@ -105,3 +105,4 @@ mbed-os
 NDefLib
 M24SR
 2ndDelivery/mbed-code/MQTT_server_setting.h
+.mypy_cache

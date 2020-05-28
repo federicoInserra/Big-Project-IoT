@@ -36,5 +36,5 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [Architecture document](/2ndDelivery/Architecture.md)
 - [Evaluation document](/2ndDelivery/Evaluation.md)
 - [The video presentation of the product and the evaluation plan](https://youtu.be/PRMyWFst-rs)
-- [The video presentation of the technical approach and architecture]()
+- [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=liWqAV-lwe4)
 - [The presentation of the future plans for technical development and evaluation ](https://youtu.be/5lAtW3QW4jg)

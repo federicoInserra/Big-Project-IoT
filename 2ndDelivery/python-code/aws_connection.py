@@ -5,30 +5,58 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import time
 import json
 import datetime
+import tkinter
 import random
-import PIL as Image
+import PIL.Image
+from PIL import ImageTk
+
 
 # Path for essential files
-ROOT_CA = r"rootCa path"
-PRIVATE_KEY = r"private key path"
-CERTIFICATE = r"certificate path"
-ENDPOINT = "aws endpoint"
+ROOT_CA = r"./rootCA.pem"
+PRIVATE_KEY = r"./private.key"
+CERTIFICATE = r"./cert.crt"
+ENDPOINT = "a25zaonwonq5gg-ats.iot.us-east-1.amazonaws.com"
 TOPIC = "/board"
+
+def fit_center(pil_image):
+    root = tkinter.Tk()
+    w, h = root.winfo_screenwidth(), root.winfo_screenheight()
+    root.overrideredirect(1)
+    root.attributes("-fullscreen", True)
+    root.wm_attributes("-topmost", 1)
+    root.geometry("%dx%d+0+0" % (w, h))
+    root.focus_set()
+    root.bind("<Escape>", lambda e: (e.widget.withdraw(), e.widget.quit()))
+    root.after(20000, root.destroy) 
+    canvas = tkinter.Canvas(root, width=w, height=h, highlightthickness=0)
+    canvas.pack()
+    canvas.configure(background='black')
+
+    img_width, img_height = pil_image.size
+    ratio = min(w / img_width, h / img_height)
+    img_width = int(img_width * ratio)
+    img_height = int(img_height * ratio)
+    pil_image = pil_image.resize((img_width, img_height), PIL.Image.ANTIALIAS)
+
+    image = ImageTk.PhotoImage(pil_image)
+    imagesprite = canvas.create_image(w / 2, h / 2, image=image)
+    root.mainloop()
 
 
 # Custom MQTT message callback
 # Modify this to handle the arrival of a message
 def customCallback(client, userdata, message):
     print("Received a new message: ")
-    print(message.payload)
+    print(str(message.payload.decode("utf-8")))
+    imageReader(str(message.payload.decode("utf-8")))
     print("from topic: ")
     print(message.topic)
-    print("--------------\n\n")
+    print("\n")
 
 
 def start_connection(topic, payload):
+    print("Start connection")
     # This function set the connection with the MQTTClient of AWS
-
     # Send the unique id of the station who is generating data
     myMQTTClient = AWSIoTMQTTClient("raspberry")
 
@@ -46,20 +74,22 @@ def start_connection(topic, payload):
     myMQTTClient.subscribe(topic, 1, customCallback)
 
     return myMQTTClient
-#Open the image
-def ImageReader(path)
-    try: 
-        img = Image.open(path)
-        img.show()
-    except IOError: 
+
+
+# Open the image
+def imageReader(filename, path="./images"):
+    try:
+        img = PIL.Image.open(filename + ".jpg")
+        fit_center(img)
+    except IOError:
         pass
-    return 
+    return
 
 
 if __name__ == "__main__":
     payload = {"raspberry space station": "I'm ON, mi ricevi?"}
-    print("Messagge sent: ", payload)
-    print("Waiting for messages on topic: ", TOPIC)
+    # print("Messagge sent: ", payload)
+    # print("Waiting for messages on topic: ", TOPIC)
     # Start the connection with AWS and wait for messages on topic
     client = start_connection(TOPIC, json.dumps(payload))
 
