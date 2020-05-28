@@ -4,9 +4,9 @@ This project intends to produce an interactive activity for the visitor. The ide
 
 ## Personas
 
-![Mario](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Mario.png)\
+![Mario](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Mario.png)
 
-![Melinda](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Melinda%20.png)\
+![Melinda](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/Melinda%20.png)
 
 ## Scenario 1
 
@@ -17,6 +17,8 @@ Mario is going to spend his weekend with his son Enrico but doesn't want to stay
 Melinda has spent her last six months in Rome and is enthusiastic about how much culture one place can contain. She is two weeks away from leaving and wants to spend every minute that she has left exploring this beautiful city. She has never visited the Città Universitaria, and tomorrow she will go there to meet her friend Julio. She knows that inside the Città Universitaria there is the Museo dell' Arte classica. When she enters the museum with Julio, Melinda finds out that the museum is different from any other museum she has visited in Rome. Inside there is a hologram that reproduces the statue with the original colors! At this point, Melinda has to share this exciting news on her Instagram account.
 
 ## Storyboard
+
+![Melinda](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/storyb.jpg)
 
 ### Older version
 
