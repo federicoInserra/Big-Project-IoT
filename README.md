@@ -1,4 +1,4 @@
-# QuizMuseum
+# CastGram
 
 The project CastGram is developed by:
 
@@ -35,6 +35,6 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/2ndDelivery/Architecture.md)
 - [Evaluation document](/2ndDelivery/Evaluation.md)
-- [The video presentation of the product and the evaluation plan]()
+- [The video presentation of the product and the evaluation plan](https://youtu.be/PRMyWFst-rs)
 - [The video presentation of the technical approach and architecture]()
 - [The presentation of the future plans for technical development and evaluation ](https://youtu.be/5lAtW3QW4jg)
