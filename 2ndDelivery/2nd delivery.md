@@ -67,16 +67,16 @@ Using this method, we have a more concrete idea of how users interact with our i
 ## A brief list of the functionality that is still missing and will be done till the 3rd and final delivery.
 - Set up the DB to maintain the statistics about the statues interaction
 - Create an Accessible dashboard to display this data to the museum curators
-- 
+- Tests with functioning system and users
 
 ## Brief presentation of the evaluation conducted since the 1st delivery.
 - Calculation of the costs of the simulation
 - Calculation of the costs of the real system
-- Calculation of the "image" latency of the system (Time from NFC signal to hologram)
-- Interviews with users ????
+- Calculation of the image latency of the system (Time from NFC signal to hologram)
+- Interviews with users
 
 ## A brief list of what you aspect to evaluate till the 3rd and final delivery.
 - Test the entire system with real users
-- Calculation of the "cloud" latency of the system (Time to send data to the cloud and show them in the dashboard)
+- Calculation of the cloud latency of the system (Time to send data to the cloud and show them in the dashboard)
 - Improve the latency of the image.
 
