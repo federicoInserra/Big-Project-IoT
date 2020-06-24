@@ -100,9 +100,9 @@ PSA_AUTOGEN/
 BUILD
 mbed-mqtt
 wifi-ism43362
-ntp-client
 mbed-os
 NDefLib
 M24SR
+
 2ndDelivery/mbed-code/MQTT_server_setting.h
 .mypy_cache
