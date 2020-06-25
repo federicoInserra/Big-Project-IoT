@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
   thread_sleep_for(200);
   mbed_trace_init();
   btn1.rise(btn1_rise_handler);
-
+  
   printf("\r\nAWS IoT + NFC\r\n");
   bool isSubscribed = false;
 
@@ -91,7 +91,9 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Connecting to network\n");
-    nsapi_size_or_error_t ret = network->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+    nsapi_size_or_error_t ret =
+        network->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD,
+                         NSAPI_SECURITY_WPA_WPA2);
     if (ret) {
       printf("Unable to connect! returned %d\n", ret);
       return -1;
@@ -153,7 +155,7 @@ int main(int argc, char *argv[]) {
   printf("MQTT client is trying to connect the server ...\r\n");
   {
     MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
-    data.cleansession = true;
+    data.cleansession = false;
     data.MQTTVersion = 4; // Version 3.1.1
     data.clientID.cstring = (char *)MQTT_CLIENT_ID;
 
@@ -241,7 +243,9 @@ int main(int argc, char *argv[]) {
 
       message.qos = MQTT::QOS0;
       message.id = id++;
-      int ret = snprintf(buf, buf_size, "%s", strMessage);
+      int ret =
+          snprintf(buf, buf_size, "{ \"name\": \"%s\"}",
+                   strMessage);
       if (ret < 0) {
         printf("ERROR: snprintf() returns %d.", ret);
         continue;
