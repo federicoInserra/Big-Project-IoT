@@ -7,10 +7,9 @@ import os
 
 filename = "gc"
 compression = "jpg"
-img_url = "https://statues-iot.s3.eu-west-3.amazonaws.com/{}.{}".format(
-    filename, compression
-)
-local_path = "./photo/" + filename
+img_name = "{}.{}".format(filename, compression)
+img_url = "https://statues-iot.s3.eu-west-3.amazonaws.com/{}".format(img_name)
+local_path = "./photo/" + img_name
 
 if path.exists(local_path):
     print("Image present locally")
@@ -21,10 +20,10 @@ if path.exists(local_path):
 else:
     r = requests.get(img_url, stream=True)
     if r.status_code == 200:
-        print("Image sucessfully downloaded: ", filename)
+        print("Image sucessfully downloaded: ", img_name)
         # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
         r.raw.decode_content = True
-        with open("./photo/{}".format(filename), "wb") as f:
+        with open("./photo/{}".format(img_name), "wb") as f:
             f.write(r.content)
         img = cv2.imread(local_path)
         cv2.imshow("image", img)
@@ -32,7 +31,7 @@ else:
         cv2.destroyAllWindows()
 
     else:
-        print("Image {} not downloaded, error {}".format(filename, r.status_code))
+        print("Image {} not downloaded, error {}".format(img_name, r.status_code))
 
 
 """
