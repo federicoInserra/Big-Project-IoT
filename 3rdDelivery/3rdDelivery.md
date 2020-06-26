@@ -1,21 +1,6 @@
 # 3rd Delivery 
 ## Comments
 
-
------------------------------------------------PARTE DA SPOSTARE---------------------------------------------------------------------------------
-During the second delivery we recived an appreciation feedback on the project and also a critique on the mechanism that allows the projection of the hologram. 
-We decided to test this with some potential users and we wanted to see if they had chosen to interact with the phone or objects. We took a sample of 15 people, divided in these age groups:
-- 4 people between 11 and 14 now called 1st group
-- 6 people between 15 and 24 now called 2nd group
-- 5 people between 40 and 60 now called 3rd group
-We chose the Think aloud method that is a user based evaluation method. In this technique, every user is encouraged to do a specific task and to comment what he/she is doing and why. 
-At the end of the evaluation this is what came out: 
-the first gruop preferred the object interaction mostly because they they thought this interaction was more playful and it seemed like a game. 
-The second group was more toward the phone interaction because they think is more intuitive and says that your phone is always available but the object could be stolen or lost but the phone is  always in your pocket. Among 6 people 5 chose the phone and one the object.
-The third group was even more divided between objects and phone. Three of them didn't want to download an application to interact with a statue in the museum and the other two wanted to try the object because they thought it was a different idea and they had not seen anything similar before. 
-At the end of the testing we asked if they were more interested in the interaction with the phone if instead of an application we used a website, 11 out of 15 agreed. 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 During the second delivery we received positive comments, related to the project idea and the use of iot, and we were very pleased, considering that we had started from scratch with a new idea.
 
 The main criticisms we received were:
