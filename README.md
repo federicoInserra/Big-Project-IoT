@@ -39,3 +39,12 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [The video presentation of the technical approach and architecture](https://www.youtube.com/watch?v=liWqAV-lwe4)
 - [The presentation of the future plans for technical development and evaluation ](https://youtu.be/5lAtW3QW4jg)
 - [28/05 presentation](https://docs.google.com/presentation/d/1SSP5tCvUbp5Dkc9KxLCV6OZQ3zQDs7Ixy6jjmiDCO1w/edit?usp=sharing)
+
+## Third Delivery Documents
+- [Third Delivery Document]()
+- [Design document]()
+- [Architecture document]()
+- [Evaluation document]()
+- [Blog Post]()
+- [Demonstration of the project]()
+- [Final Presentation]()
