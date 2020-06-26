@@ -25,7 +25,7 @@ In this case we decided to try to have more continuity between the documents and
 ## Changes
 After the second delivery we made minor changes to the project, since it was already mostly developed. We added some features and improved some techinal aspects.
 ## Design 
-We decieded to change the second persona under the advice of the Designer, Elisa. 
+We decieded to change the second persona under the advice of the Designer, Elisa. The scenario in which Melinda is involved was modified to be adapted to the new necessities. 
 ## Architecture
 The architecture was stable but during the implementation of the new functionalities we decided to change some aspects to make the communication between the parts easier. We initially started working with a NoSQL database because we wanted to save files in a JSON format but while building the dashboard we found out that with an SQL database queries were more accurate.
 ## Evaluation
