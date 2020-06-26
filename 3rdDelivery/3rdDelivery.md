@@ -5,19 +5,18 @@ During the second delivery we received positive comments, related to the project
 
 The main criticisms we received were:
 -1 The fact that it didn't make much sense that the hologram wasn't always visible but that it needed user interaction to make it appear.
+Also the interactions using the objects were a bit forced.
 
 -2 The evaluation document was incomplete, did not follow the previous document and did not accurately describe how to do experiments with users.
 
 -First comment:
 We decided to insert the interaction because in the preliminary interviews with users it had emerged that they would have preferred to "play", for example choosing the right object for the statue, instead of passively looking at the hologram.
-However, we decided to investigate even deeper and experiment with users to see if they actually preferred to interact or not.
-We had 8 users test our product and divided them into 2 groups of 4 people.
-The first group tested the product first by interacting with the board and then seeing the projected hologram directly without having to do anything.
-The second did the opposite, first testing the projected hologram constantly and then the interaction with the board.
+However, we decided to investigate even deeper and experiment with users to see if they actually preferred to interact or not and also how they prefer to interact.
+All the tests we have done are described in the evaluation document.
 
-At the end of the experiment we asked all the users what they preferred to do, and only 1 user answered that he would have preferred to see the hologram already projected without the need for interaction.
-
-So we decided to keep the interaction with the users in our project.
+The test results told us that most users would prefer to interact with the statues using the objects.
+Some of them prefer to use an app.
+Almost none of the tested users would like to see the hologram passively.
 
 -Second comment:
 In this case we decided to try to have more continuity between the documents and above all to be more careful in explaining the experiments done with the users.
