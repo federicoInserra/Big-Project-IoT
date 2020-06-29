@@ -93,4 +93,4 @@ TOTAL = Around 195€ + Approximate monthly AWS cost < 1€
 
 ### Older version
 
-- [Evaluation at first delivery](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2stDelivery/Evaluation.md)
+- [Evaluation at Second delivery](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2stDelivery/Evaluation.md)
