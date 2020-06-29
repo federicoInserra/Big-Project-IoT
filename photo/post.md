@@ -28,16 +28,20 @@ The architecture is represented here.
 
 The Raspberry Pi is subscribed to the MQTT topic and, when a message arrives, we check if the image is in main memory, if not, the Raspberry executes an HTTP request to the S3 bucket on AWS and saves the image in main memory. 
 ## Details of the IoT elements.
-The main component of the system is the STM32 Nucleo Board. To build the architecture we used this board, which was the one with the required sensors and elements for the project.
-It has a Cortex M4 core with Dynamic NFC tag based on M24SR
-and the Wi-Fi module.
-The OS of the board is MbedOS 6.1. 
-The Raspberry Pi is a Raspberry Pi Model B+, with a 
-Processor Core ARM11 Single Core, 700MHz with 512MB of RAM, and the Raspbian Operative System. 
-On the Raspberry Pi, we use a python 3 script that manages the requests for the images and shows these on the display. 
-On AWS we used different services to complete the cloud part of the architecture. 
+The main component of the system is an STM32 Nucleo Board with the following features:
+a Cortex M4 core, a Dynamic NFC tag based on M24SR
+and the Wi-Fi module with the MbedOS 6.1 operating system. 
+The Raspberry Pi is a Model B+ with a processor Core ARM11 Single Core with 512MB of RAM, and the Raspbian operating system. 
+
+The main component of the system is an STM32 Nucleo Board with the following features:
+a Cortex M4 core, a Dynamic NFC tag based on M24SR
+and the Wi-Fi module with the MbedOS 6.1 operating system. 
+The Raspberry Pi is a Model B+ with a processor Core ARM11 Single Core with 512MB of RAM, and the Raspbian operating system. 
+A Python 3 script manages the requests for images on the Raspberry Pi
+On AWS, we used different services to complete the cloud part of the architecture. 
 First, we create an IoT hub that manages the MQTT publish/subscribe request and function as an MQTT broker. We also used the Lambda Function of AWS to send data to the AWS RDS database. 
 Lambda function is a function in Node.js 12x that issues a query on the database to insert new entries every time a person activates the hologram. 
+
 
 
 
