@@ -73,7 +73,6 @@ int main(int argc, char *argv[]) {
   thread_sleep_for(200);
   mbed_trace_init();
   btn1.rise(btn1_rise_handler);
-  
   printf("\r\nAWS IoT + NFC\r\n");
   bool isSubscribed = false;
 
@@ -169,6 +168,7 @@ int main(int argc, char *argv[]) {
   printf("Client connected.\r\n");
   printf("\r\n");
 
+    /*
   printf("Client is trying to subscribe a topic \"%s\".\r\n", MQTT_TOPIC_SUB);
   {
     int rc = mqttClient->subscribe(MQTT_TOPIC_SUB, MQTT::QOS0, messageArrived);
@@ -180,6 +180,7 @@ int main(int argc, char *argv[]) {
   }
   printf("Client has subscribed a topic \"%s\".\r\n", MQTT_TOPIC_SUB);
   printf("\r\n");
+   */
 
   // Turn off the LED to let users know connection process done.
   led = LED_OFF;
@@ -203,7 +204,7 @@ int main(int argc, char *argv[]) {
   tag.set_callback(&NDefReadCallback); // Set the callback
   tag.open_session();
 
-  while (true) {
+  while (1) {
     /* Check connection */
     if (!mqttClient->isConnected()) {
       break;
@@ -260,6 +261,7 @@ int main(int argc, char *argv[]) {
       printf("MQTT message published.\r\n");
       delete[] buf;
       led = LED_OFF;
+      __WFE();
     }
   } // While
 
