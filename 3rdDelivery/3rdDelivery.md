@@ -29,7 +29,7 @@ We decided to change the second persona under the advice of the Designer, Elisa.
 ## Architecture
 The architecture was stable but during the implementation of the new functionalities, we decided to change some aspects to make the communication between the parts easier. We started working with a NoSQL database because we wanted to save files in a JSON format but while building the dashboard, we found out that with an SQL database queries were more accurate.
 ## Evaluation
-The evaluation was expanded with a user based evaluation that we conducted. We defined some new KPI's and did a Competitor Analysis to search for some other implementation techniques. 
+The evaluation was expanded with a user based evaluation that we conducted. We defined some new KPI's and we have made a study of the possible alternatives to realize our idea (for example vr and projectors).
 ## Brief presentation of the technical work done since the 2nd delivery
 Since the 2nd delivery we implemented the following features: 
 - Set up the SQL database
@@ -40,7 +40,7 @@ Since the 2nd delivery we implemented the following features:
 - Updated the code of the board to MbedOS 6 
 
 ## Brief presentation of the evaluation conducted since the 2nd delivery
-- Competitor analysis
+- Study of the possible alternatives to realize our idea
 - Think aloud evaluation
 - Possibility to implement an application instead of using objects
 - The latency of the image with a new library
