@@ -32,7 +32,7 @@ Object with NFC Tag <--NFC--> STM32 Board <--MQTT--> AWS <--MQTT --> STM32 Board
                                                       |
                                                       |
                                                       v
-                                                 SQL Database --> Grafana   
+                                                 SQL Database --> Dashboard   
 ![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch1.png)\
 
 # Evaluation Architecture
@@ -51,6 +51,10 @@ Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we c
 ## High-level scheme
 
 Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT--> Raspberry Pi + Display
+                                           |
+                                           |
+                                           v
+                                    SQL Database --> Dashboard   
 ![Architecture](https://github.com/federicoInserra/Big-Project-IoT/blob/master/photo/arch2.png)\
 
 ## Old Document
