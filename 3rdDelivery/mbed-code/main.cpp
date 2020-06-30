@@ -168,20 +168,6 @@ int main(int argc, char *argv[]) {
   printf("Client connected.\r\n");
   printf("\r\n");
 
-    /*
-  printf("Client is trying to subscribe a topic \"%s\".\r\n", MQTT_TOPIC_SUB);
-  {
-    int rc = mqttClient->subscribe(MQTT_TOPIC_SUB, MQTT::QOS0, messageArrived);
-    if (rc != MQTT::SUCCESS) {
-      printf("ERROR: rc from MQTT subscribe is %d\r\n", rc);
-      return -1;
-    }
-    isSubscribed = true;
-  }
-  printf("Client has subscribed a topic \"%s\".\r\n", MQTT_TOPIC_SUB);
-  printf("\r\n");
-   */
-
   // Turn off the LED to let users know connection process done.
   led = LED_OFF;
 
