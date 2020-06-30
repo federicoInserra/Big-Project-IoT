@@ -68,7 +68,7 @@ From a more technical point of view, we defined the following KPIs that are rela
 The first evaluation was on the privacy of users. We didn't want to store any sensitive information about our users, and this was possible because we only store inside the database the date and time of activation of the hologram. 
 Another KPI was the data security, obtained thanks to AWS that claims high security for its databases. Data security is also implemented in the communication because between the board and AWS is secured by MQTT on SSL, and the image is requested by an HTTPS Get. All these protocols contribute to keeping all information safe.
 <Error>
-The reactivity of the system, namely how much time passes between the interaction with the board and when the hologram appears. At first, we estimated 2.5 seconds of latency but by **changing the library that manages the opening of the image inside the python script, we obtained a *time of 1 second***. We used **OpenCV** to achieve the result.
+The reactivity of the system, namely how much time passes between the interaction with the board and when the hologram appears. We obtained around 2.2 seconds of latency using **OpenCV** as the library that manages the opening of the image inside the python script.
 </Error>
 The last technical point for the evaluation was the total cost of the system, that shouldn't be too high. We estimated a final cost of 195€ for the system, including the costs of AWS. 
 We also considered the user experience as a key point for the success of the system. This is done by considering the increasing of visits at the museum, the ratio of people that visit the museum, and the number of people that use the system and the satisfaction of users. 
