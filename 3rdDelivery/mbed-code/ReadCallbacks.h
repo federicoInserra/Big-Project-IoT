@@ -17,7 +17,6 @@ class ReadCallbacks : public NDefLib::NDefNfcTag::Callbacks {
   const size_t buf_size = 128;
   char *buf = new char[buf_size];
   NDefLib::Message readmMsg;
-  // NDefLib::Message *writemMsg;
 
 public:
   /**
@@ -102,24 +101,8 @@ public:
       printf("Error closing the session\r\n");
     }
   }
-
-  /*
-virtual void on_message_write(NDefLib::NDefNfcTag *tag, bool success) {
-
-  if (!success) {
-    printf("Error writing tag!\r\n");
-  } else {
-    printf("Tag written!\r\n");
-    mOnCloseSession = 1;
-  } // if-else
-
-  NDefLib::Message::remove_and_delete_all_record(*writemMsg);
-  delete writemMsg;
-  tag->close_session();
-}
-*/
   /**
-   * return the message
+   * return the TextRecord content
    */
   const char *get_string() { return buf; }
 };

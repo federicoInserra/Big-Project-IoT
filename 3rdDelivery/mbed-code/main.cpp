@@ -173,7 +173,6 @@ int main(int argc, char *argv[]) {
 
   // Create the NFC component
   I2C i2cChannel(NFC_I2C_SDA_PIN, NFC_I2C_SCL_PIN);
-
   M24SR nfcTag(M24SR_ADDR, i2cChannel, &nfc_interrupt_callback, NFC_GPO_PIN,
                NFC_RF_DISABLE_PIN);
 
@@ -181,9 +180,7 @@ int main(int argc, char *argv[]) {
   nfcTag.init(NULL);
   // No call back needed since default behavior is sync
   nfcTag.get_session();
-
   NDefLib::NDefNfcTag &tag = nfcTag.get_NDef_tag();
-
   printf("NFC Init done\n\r");
   ReadCallbacks NDefReadCallback(sessionOpenLed, ongoingOperationLed,
                                  sessionClosedLed);
@@ -213,7 +210,6 @@ int main(int argc, char *argv[]) {
     /* Publish data */
     if (isPublish) {
       isPublish = false;
-      static unsigned short id = 0;
       tag.open_session(); // Start the callback chain
       const char *strMessage = NDefReadCallback.get_string();
 
@@ -229,7 +225,6 @@ int main(int argc, char *argv[]) {
       message.payload = (void *)buf;
 
       message.qos = MQTT::QOS0;
-      message.id = id++;
       int ret =
           snprintf(buf, buf_size, "{ \"name\": \"%s\"}",
                    strMessage);
