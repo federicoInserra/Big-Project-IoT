@@ -184,7 +184,12 @@ TOTAL = Around 195€ + Approximate monthly AWS cost < 1€
 
 
 ### Reactivity of the system
----------------------------------DA FARE!!!
+As far as the reactivity of the system is concerned, we want to evaluate it mainly on the basis of the speed at which the hologram appears from the moment we approach an object to the board.
+
+As far as our simulation is concerned, the average times is 2,2 seconds from when you approach the object to when you see the image.
+
+We have also calculated the time it takes to save data on the db from when the user interacts with the board.
+The time is about 100 ms and this allows the museum curators to have a dashboard always updated.
 
 
 
