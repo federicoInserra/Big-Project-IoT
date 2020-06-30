@@ -44,6 +44,19 @@ Every message published on the selected topic, an AWS Lambda function is trigger
 The Lambda function is a function in Node.js 12.x that issues a query on the database to insert new entries every time a person activates the hologram.
 
 ### Part 1: MbedOS 6
+To program the STM32 board, we used MbedOS 6 che con le sue API ci permette di eseguire semplicemente le quattro operazioni principali che deve compiere la board:
+
+1. Connettersi ad Internet usando il modulo Wi-Fi.
+2. Connettersi al broker MQTT su AWS IoT usando MQTT over SSL.
+3. Leggere il contenuto della EEPROM NFC.
+4. Pubblicare il contenuto della EEPROM NFC su un topic MQTT.
+
+Per il punto 1 basta impostare i campi `wifi-ssid` e `wifi-password` nel file `mbed_app.json` e nel `main.cpp` 
+
+```
+network = WiFiInterface::get_default_instance();
+int ret = network->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+```
 ### Part 2: The setup on AWS
 ### Part 3: Python on the Raspberry
 ### Part 4: NFC on the Web: WebNFC APIs
