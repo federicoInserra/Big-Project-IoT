@@ -49,22 +49,15 @@ def imageReader(name, localpath=LOCAL_PATH):
 def fit_center(pil_image):
     root = Tk()
     w, h = root.winfo_screenwidth(), root.winfo_screenheight()
-    root.overrideredirect(1)
-    root.attributes("-fullscreen", True)
-    root.wm_attributes("-topmost", 1)
-    root.geometry("%dx%d+0+0" % (w, h))
-    root.focus_set()
     root.bind("<Escape>", lambda e: (e.widget.withdraw(), e.widget.quit()))
     root.after(20000, root.destroy)
     canvas = Canvas(root, width=w, height=h, highlightthickness=0)
     canvas.pack()
     canvas.configure(background='black')
-
     img_width, img_height = pil_image.size
     ratio = min(w / img_width, h / img_height)
     img_width = int(img_width * ratio)
     img_height = int(img_height * ratio)
-    pil_image = pil_image.resize((img_width, img_height), Image.ANTIALIAS)
 
     image = ImageTk.PhotoImage(pil_image)
     imagesprite = canvas.create_image(w / 2, h / 2, image=image)
@@ -109,7 +102,6 @@ if __name__ == '__main__':
     event_loop_group = io.EventLoopGroup(1)
     host_resolver = io.DefaultHostResolver(event_loop_group)
     client_bootstrap = io.ClientBootstrap(event_loop_group, host_resolver)
-
     mqtt_connection = mqtt_connection_builder.mtls_from_path(
         endpoint=ENDPOINT,
         cert_filepath=CERTIFICATE,
@@ -121,12 +113,9 @@ if __name__ == '__main__':
         client_id=CLIENT_ID,
         clean_session=False,
         keep_alive_secs=6)
-
     print("Connecting to {} with client ID '{}'...".format(
         ENDPOINT, CLIENT_ID))
-
     connect_future = mqtt_connection.connect()
-
     # Future.result() waits until a result is available
     connect_future.result()
     print("Connected!")
@@ -137,7 +126,6 @@ if __name__ == '__main__':
             topic=TOPIC,
             qos=mqtt.QoS.AT_LEAST_ONCE,
             callback=on_message_received)
-
         subscribe_result = subscribe_future.result()
         print("Subscribed with {}".format(str(subscribe_result['qos'])))
         print("Listening...")
