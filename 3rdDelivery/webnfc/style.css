@@ -2,7 +2,6 @@ html {
   background: #f5f7f8;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  padding: 24px 0;
 }
 
 .container {
@@ -13,6 +12,31 @@ html {
   padding: 0;
 }
 .write {
-  padding: 16px;
-  margin: 16px;
+}
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 4px green solid;
+  border-radius: 16px;
+}
+
+.header {
+  height: 30%;
+  background: green;
+  border-radius: 16px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.containerCard {
+  width: 320px;
+  max-width: 100%;
+}
+button {
+  background: #fff;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
 }

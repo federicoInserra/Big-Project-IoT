@@ -13,10 +13,28 @@
   </head>
   <body style="padding: 1rem;">
     <h2 style="color: rosybrown;">WEB NFCAPI</h2>
-    <h3>Tap a button to select an Hologram</h3>
+    <h3>Tap on a statue to select an Hologram</h3>
     <div class="container">
-      <button class="write" name="gc">Giulio Cesare</button>
-      <button class="write" name="ca">Augusto</button>
+      <button class="write" name="gc">
+        <div class="card">
+          <div class="header">
+            <p>Giulio Cesare</p>
+          </div>
+          <div class="containerCard">
+            <img src="./images/gc.png" style="height: 400px;" />
+          </div>
+        </div>
+      </button>
+      <button class="write" name="ca">
+        <div class="card">
+          <div class="header">
+            <p>Cesare Auguto</p>
+          </div>
+          <div class="containerCard">
+            <img src="./images/ca.png" style="height: 400px;"/>
+          </div>
+        </div>
+      </button>
     </div>
     <h3 id="message"></h3>
   </body>
