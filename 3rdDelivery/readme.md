@@ -56,7 +56,7 @@ To program the STM32 board, we used MbedOS 6 which with its API allows us to sim
 3. Read the contents of the NFC EEPROM.
 4. Publish the content of the NFC EEPROM on an MQTT topic.
 
-For point 1 just set the fields `wifi-SSID` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
+For point 1 just set the fields `wifi-ssid` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
 
 ```
 WiFiInterface *network;
@@ -256,7 +256,7 @@ The action will take as input the output of this query, in JSON format. Using th
 
 #### AWS S3
 
-To improve the scalability of the system we store all the images ready to be displayed on an S3 Bucket,  easily created from the AWS Dashboard and included in the AWS free tier. Once the images are loaded, a simple HTTP GET will be enough to download and save the image locally.
+To improve the scalability of the system we store all the images ready to be displayed on an S3 Bucket, easily created from the AWS Dashboard and included in the AWS free tier. Once the images are loaded, a simple HTTP GET will be enough to download and save the image locally.
 
 ### Part 3: Python on the Raspberry
 
@@ -326,15 +326,24 @@ We can perform a query on the database and visualize the results using beautiful
 
 We evaluated the project by establishing a set of Key Performance Indicators at the beginning of the development cycle. We also interviewed some people to have first feedback on the idea.
 From a more technical point of view, we defined the following KPIs that are relative to the characteristics of a system.
+
 ### KPI 1: User's privacy
+
 The first evaluation was on the privacy of users. We didn't want to store any sensitive information about our users, and this was possible because we only store inside the database the date and time of activation of the hologram.
+
 ### KPI 2: Data security
+
 Another KPI was the data security, obtained thanks to AWS that claims high security for its databases. Data security is also implemented in the communication because between the board and AWS is secured by MQTT on SSL, and the image is requested by an HTTPS Get. All these protocols contribute to keeping all information safe.
+
 ### KPI 3: reactivity
+
 The reactivity of the system, namely how much time passes between the interaction with the board and when the hologram appears. We obtained around 2.2 seconds of latency using Pillow as the library that manages the opening of the image inside the Python script.
+
 ### KPI 4: Costs
+
 The last technical point for the evaluation was the total cost of the system, that shouldn't be too high. We estimated a final cost of 195€ for the system, including the costs of AWS.
+
 ### Other KPIs
+
 We also considered the user experience as a key point for the success of the system. This is done by considering the increasing of visits at the museum, the ratio of people that visit the museum, and the number of people that use the system and the satisfaction of users.
 We will manage the first two once we install the Castgram in a museum, for the third one we asked users that tested Castgram to rate the system under different aspects, ease of use, aesthetic and general impression of the system. We scored an average grade 9/10 on the aesthetic, average grade 7/10 on ease of use, and average grade 8/10 on the general impression.
-
