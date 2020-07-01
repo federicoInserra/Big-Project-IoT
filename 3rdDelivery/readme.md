@@ -51,10 +51,10 @@ The Lambda function is a function in Node.js 12.x that issues a query on the dat
 
 To program the STM32 board, we used MbedOS 6 which with its API allows us to simply perform the four main operations that the board must perform:
 
-1. Connettersi ad Internet usando il modulo Wi-Fi.
-2. Connettersi al broker MQTT su AWS IoT usando MQTT over SSL.
-3. Leggere il contenuto della EEPROM NFC.
-4. Pubblicare il contenuto della EEPROM NFC su un topic MQTT.
+1. Connect to the Internet using the Wi-Fi module.
+2. Connect to the MQTT broker on AWS IoT using MQTT over SSL.
+3. Read the contents of the NFC EEPROM.
+4. Publish the content of the NFC EEPROM on an MQTT topic.
 
 For point 1 just set the fields `wifi-ssid` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
 
@@ -123,25 +123,24 @@ int rc = mqttClient->publish(MQTT_TOPIC_SUB, message);
 delete[] buf;
 ```
 
+On the AWS IoT console, by subscribing to the topic on which we posted the message we can see the message that will arrive in JSON as {"name": "OBJECT_NAME"}.
+
 ### Part 2: The setup on AWS
 
 #### AWS IoT
 
-To get started with AWS IoT, you need an AWS account. Once you have created your account, you can log in and navigate to 
-the AWS IoT Console. We are now ready to register a new *Thing* using the web interface. For our demonstration we have setup two things, one for the STM32 board, one for the Raspberry Pi. 
-AWS uses certificate-based authentication and authorisation 
+To get started with AWS IoT, you need an AWS account. Once you have created your account, you can log in and navigate to
+the AWS IoT Console. We are now ready to register a new _Thing_ using the web interface. For our demonstration we have setup two things, one for the STM32 board, one for the Raspberry Pi.
+AWS uses certificate-based authentication and authorisation
 to create a secure connection between the device and AWS IoT Core. The easiest way to do that is to use the **"One-click certificate creation"**
-
 
 /Screenshot 2020-06-30 at 16.20.04.png
 
-You can download the certificate for the thing, the private key, and the root CA for AWS IoT. (You do not need the public key). Save each of them to your computer, choose Activate and then click on Done. Now we need to create a Policy for our thing. AWS IoT Core policies are used to authorise your device to perform AWS IoT Core operations, such as subscribing or publishing to MQTT topics. Your device presents its certificate 
-when sending messages to AWS IoT Core. To allow your device to perform AWS IoT Core operations, you must create an 
+You can download the certificate for the thing, the private key, and the root CA for AWS IoT. (You do not need the public key). Save each of them to your computer, choose Activate and then click on Done. Now we need to create a Policy for our thing. AWS IoT Core policies are used to authorise your device to perform AWS IoT Core operations, such as subscribing or publishing to MQTT topics. Your device presents its certificate
+when sending messages to AWS IoT Core. To allow your device to perform AWS IoT Core operations, you must create an
 AWS IoT Core policy and attach it to your device certificate.
 
-
-
-In the left navigation menu choose Secure and then Policies. From here click on Create and then insert the name you prefer for the policy and then in the *Advanced mode* view you can insert all the permission needed, in our case the device have to be able to Connect, Publish, Subscribe and Receive. You can view all the policy actions [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-policy-actions.html)
+In the left navigation menu choose Secure and then Policies. From here click on Create and then insert the name you prefer for the policy and then in the _Advanced mode_ view you can insert all the permission needed, in our case the device have to be able to Connect, Publish, Subscribe and Receive. You can view all the policy actions [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-policy-actions.html)
 
 ```
 {
@@ -172,16 +171,29 @@ In the left navigation menu choose Secure and then Policies. From here click on 
 ```
 
 #### AWS RDS
-To add a level of persistence of our data, we opted for an SQL database on AWS RDS, using PostgresSQL 10 as the engine, using the *Free Tier* as the creation template, which despite being the least powerful, is still enough for the amount of data it has to handle. 
+
+To add a level of persistence of our data, we opted for an SQL database on AWS RDS, using PostgresSQL 10 as the engine, using the _Free Tier_ as the creation template, which despite being the least powerful, is still enough for the amount of data it has to handle.
 Let's save the database name, host, port, password and user we will need in the future for the Lambda function and the dashboard.
 
+Using the SQL client that we prefer we can connect to the database and create the `things` table where we will save all the messages that arrive on AWS IoT.
+
+```
+CREATE TABLE things (
+    id SERIAL PRIMARY KEY,
+    name text,
+    deviceid text,
+    timestamp timestamp with time zone
+);
+
+CREATE UNIQUE INDEX things_pkey ON things(id int4_ops);
+```
 
 #### AWS Lambda
 
 With Lambda Layers it’s really easy to connect our Node.js Lambda Function to PostgreSQL an AWS RDS.
-We can create a *Layer* that contains the **node-postgres** dependency and attach it to our Node.js function.
+We can create a _Layer_ that contains the **node-postgres** dependency and attach it to our Node.js function.
 
-To create a layer we have to setup a basic Node.js application  with **node-postgres**  as dependency. In our preferred terminal run:
+To create a layer we have to setup a basic Node.js application with **node-postgres** as dependency. In our preferred terminal run:
 
 ```
 mkdir nodePostgres
@@ -192,8 +204,8 @@ npm init
 npm install --save pg
 ```
 
-In the nodePostgres folder zip the *nodejs* folder inside. You should see nodejs.zip inside the nodePostgres folder.
-In the AWS Lambda Console, click the *≡ Menu* at top left, select *Layers* and create a new layer uploading the nodejs.zip file that we have created before with Node.js 12.x as Compatible Runtime.
+In the nodePostgres folder zip the _nodejs_ folder inside. You should see nodejs.zip inside the nodePostgres folder.
+In the AWS Lambda Console, click the _≡ Menu_ at top left, select _Layers_ and create a new layer uploading the nodejs.zip file that we have created before with Node.js 12.x as Compatible Runtime.
 We are now ready to write our Lambda function from scratch, using Node.js 12.x as Runtime.
 Using an NPM package in Lambda Layers works the same way as plain Node.js. `require(‘pg’)` works as expected because the NPM module `pg` is already packaged in the nodePostgres Lambda Layer.
 Before to write the code we have to import the layer creato precedentemente and fill the PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER environment variables using the informations given before by AWS RDS.
@@ -227,24 +239,47 @@ exports.handler = async(event) => {
 };
 ```
 
-Before testing the code we have to check if the Lambda function can connect to the database, to achieve this we can connect our function to a *virtual private cloud (VPC)*, the same VPC of our database that we can find in the AWS RDS dashboard.
+Before testing the code we have to check if the Lambda function can connect to the database, to achieve this we can connect our function to a _virtual private cloud (VPC)_, the same VPC of our database that we can find in the AWS RDS dashboard.
 
-#### Bring all them together 
-We have successfully linked AWS Lambda with AWS RDS, how can we trigger this Lambda every time a message is published over MQTT? 
-To do it we will use an *AWS IoT rule* who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function precedentemente creata.
+#### Bring all them together
+
+We have successfully linked AWS Lambda with AWS RDS, how can we trigger this Lambda every time a message is published over MQTT?
+To do it we will use an _AWS IoT rule_ who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function precedentemente creata.
 On the AWS IoT console click Act->Rules->Create, here we have to perform a query using an [SQL-like syntax](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html).
-We want to save all the *MQTT payload*, plus a *timestamp* and the *client id* of the publisher. La query dunque sarà 
+We want to save all the _MQTT payload_, plus a _timestamp_ and the _client id_ of the publisher. La query dunque sarà
 
 ```
 SELECT *, timestamp() as timestamp, clientid() as clientid FROM '/board'
 ```
 
-The action will take as input the output of this query, in JSON format. Using the *Add action* button we can select the **"Send a message to a Lambda function"** option and choose our Lambda function.
+The action will take as input the output of this query, in JSON format. Using the _Add action_ button we can select the **"Send a message to a Lambda function"** option and choose our Lambda function.
+
+#### AWS S3
+
+In order to improve the scalability of the system we store all the images ready to be displayed on a S3 Bucket, facilmente creabile from the AWS Dashboard ed incluso nel AWS free tier. Una volta caricate le immagine basterà dunque una semplice GET HTTP per scaricare e salvare l'immagine in locale.
+
 ### Part 3: Python on the Raspberry
+
+The Raspberry must take care of:
+
+1. Connect to AWS IoT using MQTT over SSL
+2. Subscribe to the MQTT topic
+3. Whenever he receives a message on the topic where he is listening, he looks for the image locally, if is present it shows it.
+4. If it is not present locally, it GETs to the S3 bucket, downloads the image, saves it locally and then shows it.
+
+To do this we have chosen to use the second version of [AWS IoT SDK for Python](https://github.com/aws/aws-iot-device-sdk-python-v2), [Pillow](https://pillow.readthedocs.io/en/stable/) and [requests](https://github.com/psf/requests)
+
+As before the first thing to do is to create a device on AWS IoT and download the necessary certificates, done that we have everything we need to build an `mqtt_connection_builder` object and assign callbacks, the most interesting one, in our case, is the`on_message_received`one, which is called whenever it is received a message on the topic to which you subscribe.
+The message payload is in [bytes](https://docs.python.org/3/library/stdtypes.html#bytes), the function `json.loads`takes care of deserialising the payload and then getting the `"name"` field.
+
+```
+data = json.loads(payload)
+name = data["name"]
+```
 
 ### Part 4: NFC on the Web: WebNFC APIs
 
-Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possibile to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only  in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of read/write NFC tags.
+Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possibile to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of read/write NFC tags.
 On a website serving in HTTPS (HTTP will not work) we will create a function triggered by an HTML5 `<button>` that instantiate an `NDEFWriter` object and start the writing process. Writing a text string to an NFC tag is straightforward, in our case the text string will be the name of the selected statue.
 
 ```
@@ -280,7 +315,7 @@ The name written on the NFC tag is the name of the HTML button component.
 
 ### Part 5: The Dashboard on Grafana
 
-To monitor and visualize all the messages stored in the database we built a Dashboard using [Grafana](https://grafana.com/). Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards teams and foster a data driven culture. You can [install](https://grafana.com/grafana/download) it locally, host it online on your severs, or on your preferred PasS. You can also use [Grafana Cloud](https://grafana.com/products/cloud/) that with its *Starter* tier allow you to test the platform without to spend anything.
+To monitor and visualize all the messages stored in the database we built a Dashboard using [Grafana](https://grafana.com/). Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards teams and foster a data driven culture. You can [install](https://grafana.com/grafana/download) it locally, host it online on your severs, or on your preferred PasS. You can also use [Grafana Cloud](https://grafana.com/products/cloud/) that with its _Starter_ tier allow you to test the platform without to spend anything.
 Once created an account the first thing to do is add a data source, in our case the PostgresSQL 10 database on AWS RDS, always remembering to add the ip address that is trying to connect to the database to you VPC on AWS as inbound rule.
 
 We can perform query on the database and visualize the results using beautiful widgets. The query builder tool allows us to write powerful query without mess-up with the SQL syntax.
