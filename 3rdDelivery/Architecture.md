@@ -30,7 +30,7 @@ Object with NFC Tag <--NFC--> STM32 Board <--MQTT--> AWS <--MQTT --> STM32 Board
                                                       |
                                                       |
                                                       v
-                                                 SQL Database --> Dashboard   
+                                                SQL Database --> Dashboard   
 ![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597294/IoT_V2_ixypdp.png)
 
 # Evaluation Architecture
@@ -56,7 +56,7 @@ Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT--> Raspberry Pi + Display
                                            |
                                            |
                                            v
-                                    SQL Database --> Dashboard   
+                                   SQL Database --> Dashboard   
 ![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597337/arch_bc0npx.png)
 
 ## Old Document
