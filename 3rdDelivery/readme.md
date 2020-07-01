@@ -3,8 +3,8 @@
 ## The Idea
 
 **Castgram** is a new experience to enjoy inside ancient art museums. During the research for the project, we found out that originally
-statues weren't white as they are now but coloured. Since few people knew this, we wanted to create an original method to show people this aspect of the museum. We also desired to create a unique user experience so we came up with this idea. Inside one room, there is the board with some objects that are related to different historical figures, represented by a statue in the room.
-When a person chooses an object, he approaches the statue with it and a hologram of the statue appears. The hologram shows the coloured statue
+statues weren't white as they are now but colored. Since few people knew this, we wanted to create an original method to show people this aspect of the museum. We also desired to create a unique user experience so we came up with this idea. Inside one room, there is the board with some objects that are related to different historical figures, represented by a statue in the room.
+When a person chooses an object, he approaches the statue with it and a hologram of the statue appears. The hologram shows the colored statue
 that is related to the object, for each object there is a different hologram. With this system, users have a different experience inside the museum that is brand new and they are also able to see the true aspect of classical statues.
 
 ## The architecture of the System and components
@@ -38,13 +38,13 @@ The Raspberry Pi is subscribed to the MQTT topic and, when a message arrives, we
 
 ## Details of the IoT elements.
 
-The main component of the system is an STM32 B-L475E-IOT01A Nucleo Board by STMicroelectronics with the following main features:a Cortex M4 core, a Dynamic NFC tag based on the M24SR series and a Wi-Fi module from Inventek Systems (ISM43362-M3G-L44), running MbedOS 6.1.
+The main component of the system is an STM32 B-L475E-IOT01A Nucleo Board by STMicroelectronics with the following main features: a Cortex M4 core, a Dynamic NFC tag based on the M24SR series and a Wi-Fi module from Inventek Systems (ISM43362-M3G-L44), running MbedOS 6.1.
 The Raspberry Pi is a Model 1B+ with a processor Core ARM11 Single Core with 512MB of RAM, and the Raspbian operating system.
 A Python 3 script manages the requests for images on the Raspberry Pi.
 On AWS, we used different services to complete the cloud part of the architecture.
 
 First, we create an IoT object on AWS IoT that manages the MQTT publish/subscribe request and function as an MQTT broker.
-Every message published on the selected topic, an AWS Lambda function is triggered, with the main purpose of saving the MQTT payload on PostgresSQL database on AWS RDS.
+Every message published on the selected topic, an AWS Lambda function is triggered, with the main purpose of saving the MQTT payload on the PostgresSQL database on AWS RDS.
 The Lambda function is a function in Node.js 12.x that issues a query on the database to insert new entries every time a person activates the hologram.
 
 ### Part 1: MbedOS 6
@@ -56,7 +56,7 @@ To program the STM32 board, we used MbedOS 6 which with its API allows us to sim
 3. Read the contents of the NFC EEPROM.
 4. Publish the content of the NFC EEPROM on an MQTT topic.
 
-For point 1 just set the fields `wifi-ssid` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
+For point 1 just set the fields `wifi-SSID` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
 
 ```
 WiFiInterface *network;
@@ -89,7 +89,7 @@ mqttClient = new MQTTClient(socket);
 int rc = mqttClient->connect(data);
 ```
 
-To read the content of the NFC tag we can use the NFC tag management libraries based on the M24SR series and NFC Data Exchange Format (NDEF). We must first initialize the tag, set the callbacks and open the session.
+To read the content of the NFC tag we can use the NFC tag management libraries based on the M24SR series and NFC Data Exchange Format (NDEF). We must first initialize the tag, set the callbacks, and open the session.
 
 ```
 I2C i2cChannel(NFC_I2C_SDA_PIN, NFC_I2C_SCL_PIN);
@@ -130,17 +130,17 @@ On the AWS IoT console, by subscribing to the topic on which we posted the messa
 #### AWS IoT
 
 To get started with AWS IoT, you need an AWS account. Once you have created your account, you can log in and navigate to
-the AWS IoT Console. We are now ready to register a new _Thing_ using the web interface. For our demonstration we have setup two things, one for the STM32 board, one for the Raspberry Pi.
-AWS uses certificate-based authentication and authorisation
+the AWS IoT Console. We are now ready to register a new _Thing_ using the web interface. For our demonstration, we have set up two things, one for the STM32 board, one for the Raspberry Pi.
+AWS uses certificate-based authentication and authorization
 to create a secure connection between the device and AWS IoT Core. The easiest way to do that is to use the **"One-click certificate creation"**
 
 /Screenshot 2020-06-30 at 16.20.04.png
 
-You can download the certificate for the thing, the private key, and the root CA for AWS IoT. (You do not need the public key). Save each of them to your computer, choose Activate and then click on Done. Now we need to create a Policy for our thing. AWS IoT Core policies are used to authorise your device to perform AWS IoT Core operations, such as subscribing or publishing to MQTT topics. Your device presents its certificate
+You can download the certificate for the thing, the private key, and the root CA for AWS IoT. (You do not need the public key). Save each of them to your computer, choose Activate and then click on Done. Now we need to create a Policy for our thing. AWS IoT Core policies are used to authorize your device to perform AWS IoT Core operations, such as subscribing or publishing to MQTT topics. Your device presents its certificate
 when sending messages to AWS IoT Core. To allow your device to perform AWS IoT Core operations, you must create an
 AWS IoT Core policy and attach it to your device certificate.
 
-In the left navigation menu choose Secure and then Policies. From here click on Create and then insert the name you prefer for the policy and then in the _Advanced mode_ view you can insert all the permission needed, in our case the device have to be able to Connect, Publish, Subscribe and Receive. You can view all the policy actions [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-policy-actions.html)
+In the left navigation menu choose Secure and then Policies. From here click on Create and then insert the name you prefer for the policy and then in the _Advanced mode_ view you can insert all the permission needed, in our case the device has to be able to Connect, Publish, Subscribe and Receive. You can view all the policy actions [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-policy-actions.html)
 
 ```
 {
@@ -173,7 +173,7 @@ In the left navigation menu choose Secure and then Policies. From here click on 
 #### AWS RDS
 
 To add a level of persistence of our data, we opted for an SQL database on AWS RDS, using PostgresSQL 10 as the engine, using the _Free Tier_ as the creation template, which despite being the least powerful, is still enough for the amount of data it has to handle.
-Let's save the database name, host, port, password and user we will need in the future for the Lambda function and the dashboard.
+Let's save the database name, host, port, password, and user we will need in the future for the Lambda function and the dashboard.
 
 Using the SQL client that we prefer we can connect to the database and create the `things` table where we will save all the messages that arrive on AWS IoT.
 
@@ -191,9 +191,9 @@ CREATE UNIQUE INDEX things_pkey ON things(id int4_ops);
 #### AWS Lambda
 
 With Lambda Layers it’s really easy to connect our Node.js Lambda Function to PostgreSQL an AWS RDS.
-We can create a _Layer_ that contains the **node-postgres** dependency and attach it to our Node.js function.
+We can create a _Layer_ that contains the **node-Postgres** dependency and attach it to our Node.js function.
 
-To create a layer we have to setup a basic Node.js application with **node-postgres** as dependency. In our preferred terminal run:
+To create a layer we have to set up a basic Node.js application with **node-Postgres** as a dependency. In our preferred terminal run:
 
 ```
 mkdir nodePostgres
@@ -205,10 +205,10 @@ npm install --save pg
 ```
 
 In the nodePostgres folder zip the _nodejs_ folder inside. You should see nodejs.zip inside the nodePostgres folder.
-In the AWS Lambda Console, click the _≡ Menu_ at top left, select _Layers_ and create a new layer uploading the nodejs.zip file that we have created before with Node.js 12.x as Compatible Runtime.
+In the AWS Lambda Console, click the _≡ Menu_ at the top left, select _Layers_, and create a new layer uploading the nodejs.zip file that we have created before with Node.js 12.x as Compatible Runtime.
 We are now ready to write our Lambda function from scratch, using Node.js 12.x as Runtime.
 Using an NPM package in Lambda Layers works the same way as plain Node.js. `require(‘pg’)` works as expected because the NPM module `pg` is already packaged in the nodePostgres Lambda Layer.
-Before to write the code we have to import the layer previously created and fill the PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER environment variables using the informations given before by AWS RDS.
+Before writing the code we have to import the layer previously created and fill the PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER environment variables using the information given before by AWS RDS.
 The necessary code to save the input of the function in a table in the database is the following:
 
 ```
@@ -244,7 +244,7 @@ Before testing the code we have to check if the Lambda function can connect to t
 #### Bring all them together
 
 We have successfully linked AWS Lambda with AWS RDS, how can we trigger this Lambda every time a message is published over MQTT?
-To do it we will use an _AWS IoT rule_ who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function previously created.
+To do it we will use an _AWS IoT rule_ who listens for every message that arrives for a certain topic and then does action with this message. In this case, the action will be to invoke the Lambda function previously created.
 On the AWS IoT console click Act->Rules->Create, here we have to perform a query using an [SQL-like syntax](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html).
 We want to save all the _MQTT payload_, plus a _timestamp_ and the _client id_ of the publisher. The query is:
 
@@ -256,7 +256,7 @@ The action will take as input the output of this query, in JSON format. Using th
 
 #### AWS S3
 
-In order to improve the scalability of the system we store all the images ready to be displayed on a S3 Bucket,  easily created from the AWS Dashboard and included in the AWS free tier. Once the images are loaded, a simple HTTP GET will be enough to download and save the image locally.
+To improve the scalability of the system we store all the images ready to be displayed on an S3 Bucket,  easily created from the AWS Dashboard and included in the AWS free tier. Once the images are loaded, a simple HTTP GET will be enough to download and save the image locally.
 
 ### Part 3: Python on the Raspberry
 
@@ -264,13 +264,13 @@ The Raspberry must take care of:
 
 1. Connect to AWS IoT using MQTT over SSL
 2. Subscribe to the MQTT topic
-3. Whenever he receives a message on the topic where he is listening, he looks for the image locally, if is present it shows it.
-4. If it is not present locally, it GETs to the S3 bucket, downloads the image, saves it locally and then shows it.
+3. Whenever he receives a message on the topic where he is listening, he looks for the image locally, if it is present it shows the image.
+4. If it is not present locally, it GETs to the S3 bucket, downloads the image, saves it locally, and then shows it.
 
 To do this we have chosen to use the second version of [AWS IoT SDK for Python](https://github.com/aws/aws-iot-device-sdk-python-v2), [Pillow](https://pillow.readthedocs.io/en/stable/) and [requests](https://github.com/psf/requests)
 
-As before the first thing to do is to create a device on AWS IoT and download the necessary certificates, done that we have everything we need to build an `mqtt_connection_builder` object and assign callbacks, the most interesting one, in our case, is the`on_message_received`one, which is called whenever it is received a message on the topic to which you subscribe.
-The message payload is in [bytes](https://docs.python.org/3/library/stdtypes.html#bytes), the function `json.loads`takes care of deserialising the payload and then getting the `"name"` field.
+As before the first thing to do is to create a device on AWS IoT and download the necessary certificates, done that we have everything we need to build a `mqtt_connection_builder` object and assign callbacks, the most interesting one, in our case, is the`on_message_received` one, which is called whenever it is received a message on the topic to which you subscribe.
+The message payload is in [bytes](https://docs.python.org/3/library/stdtypes.html#bytes), the function `json.loads`takes care of deserializing the payload and then getting the `"name"` field.
 
 ```
 data = json.loads(payload)
@@ -279,8 +279,8 @@ name = data["name"]
 
 ### Part 4: NFC on the Web: WebNFC APIs
 
-Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possibile to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of read/write NFC tags.
-On a website serving in HTTPS (HTTP will not work) we will create a function triggered by an HTML5 `<button>` that instantiate an `NDEFWriter` object and start the writing process. Writing a text string to an NFC tag is straightforward, in our case the text string will be the name of the selected statue.
+Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possible to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of reading/writing NFC tags.
+On a website serving in HTTPS (HTTP will not work) we will create a function triggered by an HTML5 `<button>` that instantiates an `NDEFWriter` object and start the writing process. Writing a text string to an NFC tag is straightforward, in our case, the text string will be the name of the selected statue.
 
 ```
 async function write(event) {
@@ -297,7 +297,7 @@ async function write(event) {
 }
 ```
 
-We can add this `write` function as event listener for our buttons.
+We can add this `write` function as an event listener for our buttons.
 
 ```
 const buttons = document.querySelectorAll("body > div > button");
@@ -315,10 +315,10 @@ The name written on the NFC tag is the name of the HTML button component.
 
 ### Part 5: The Dashboard on Grafana
 
-To monitor and visualize all the messages stored in the database we built a Dashboard using [Grafana](https://grafana.com/). Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards teams and foster a data driven culture. You can [install](https://grafana.com/grafana/download) it locally, host it online on your severs, or on your preferred PasS. You can also use [Grafana Cloud](https://grafana.com/products/cloud/) that with its _Starter_ tier allow you to test the platform without to spend anything.
-Once created an account the first thing to do is add a data source, in our case the PostgresSQL 10 database on AWS RDS, always remembering to add the ip address that is trying to connect to the database to you VPC on AWS as inbound rule.
+To monitor and visualize all the messages stored in the database we built a Dashboard using [Grafana](https://grafana.com/). Grafana allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. Create, explore, and share dashboards teams and foster a data-driven culture. You can [install](https://grafana.com/grafana/download) it locally, host it online on your servers, or on your preferred PasS. You can also use [Grafana Cloud](https://grafana.com/products/cloud/) that with its _Starter_ tier allow you to test the platform without spending anything.
+Once created an account the first thing to do is add a data source, in our case the PostgresSQL 10 database on AWS RDS, always remembering to add the IP address that is trying to connect to the database to you VPC on AWS as an inbound rule.
 
-We can perform query on the database and visualize the results using beautiful widgets. The query builder tool allows us to write powerful query without mess-up with the SQL syntax.
+We can perform a query on the database and visualize the results using beautiful widgets. The query builder tool allows us to write powerful queries without mess-up with the SQL syntax.
 
 /Schermata 2020-06-30 alle 23.34.47.png
 
@@ -326,9 +326,15 @@ We can perform query on the database and visualize the results using beautiful w
 
 We evaluated the project by establishing a set of Key Performance Indicators at the beginning of the development cycle. We also interviewed some people to have first feedback on the idea.
 From a more technical point of view, we defined the following KPIs that are relative to the characteristics of a system.
+### KPI 1: User's privacy
 The first evaluation was on the privacy of users. We didn't want to store any sensitive information about our users, and this was possible because we only store inside the database the date and time of activation of the hologram.
+### KPI 2: Data security
 Another KPI was the data security, obtained thanks to AWS that claims high security for its databases. Data security is also implemented in the communication because between the board and AWS is secured by MQTT on SSL, and the image is requested by an HTTPS Get. All these protocols contribute to keeping all information safe.
+### KPI 3: reactivity
 The reactivity of the system, namely how much time passes between the interaction with the board and when the hologram appears. We obtained around 2.2 seconds of latency using Pillow as the library that manages the opening of the image inside the Python script.
+### KPI 4: Costs
 The last technical point for the evaluation was the total cost of the system, that shouldn't be too high. We estimated a final cost of 195€ for the system, including the costs of AWS.
+### Other KPIs
 We also considered the user experience as a key point for the success of the system. This is done by considering the increasing of visits at the museum, the ratio of people that visit the museum, and the number of people that use the system and the satisfaction of users.
 We will manage the first two once we install the Castgram in a museum, for the third one we asked users that tested Castgram to rate the system under different aspects, ease of use, aesthetic and general impression of the system. We scored an average grade 9/10 on the aesthetic, average grade 7/10 on ease of use, and average grade 8/10 on the general impression.
+
