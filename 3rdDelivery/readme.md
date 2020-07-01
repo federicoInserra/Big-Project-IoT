@@ -208,7 +208,7 @@ In the nodePostgres folder zip the _nodejs_ folder inside. You should see nodejs
 In the AWS Lambda Console, click the _≡ Menu_ at top left, select _Layers_ and create a new layer uploading the nodejs.zip file that we have created before with Node.js 12.x as Compatible Runtime.
 We are now ready to write our Lambda function from scratch, using Node.js 12.x as Runtime.
 Using an NPM package in Lambda Layers works the same way as plain Node.js. `require(‘pg’)` works as expected because the NPM module `pg` is already packaged in the nodePostgres Lambda Layer.
-Before to write the code we have to import the layer creato precedentemente and fill the PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER environment variables using the informations given before by AWS RDS.
+Before to write the code we have to import the layer previously created and fill the PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER environment variables using the informations given before by AWS RDS.
 The necessary code to save the input of the function in a table in the database is the following:
 
 ```
@@ -244,9 +244,9 @@ Before testing the code we have to check if the Lambda function can connect to t
 #### Bring all them together
 
 We have successfully linked AWS Lambda with AWS RDS, how can we trigger this Lambda every time a message is published over MQTT?
-To do it we will use an _AWS IoT rule_ who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function precedentemente creata.
+To do it we will use an _AWS IoT rule_ who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function previously created.
 On the AWS IoT console click Act->Rules->Create, here we have to perform a query using an [SQL-like syntax](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html).
-We want to save all the _MQTT payload_, plus a _timestamp_ and the _client id_ of the publisher. La query dunque sarà
+We want to save all the _MQTT payload_, plus a _timestamp_ and the _client id_ of the publisher. The query is:
 
 ```
 SELECT *, timestamp() as timestamp, clientid() as clientid FROM '/board'
