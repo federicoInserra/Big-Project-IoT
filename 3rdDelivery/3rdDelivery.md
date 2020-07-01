@@ -30,6 +30,7 @@ We decided to change the second persona under the advice of the Designer, Elisa.
 The architecture was stable but during the implementation of the new functionalities, we decided to change some aspects to make the communication between the parts easier. We started working with a NoSQL database because we wanted to save files in a JSON format but while building the dashboard, we found out that with an SQL database queries were more accurate.
 ## Evaluation
 The evaluation was expanded with a user based evaluation that we conducted. We defined some new KPI's and we have made a study of the possible alternatives to realize our idea (for example vr and projectors).
+We added a new image of a statue to our repository.
 ## Brief presentation of the technical work done since the 2nd delivery
 Since the 2nd delivery we implemented the following features: 
 - Set up the SQL database
