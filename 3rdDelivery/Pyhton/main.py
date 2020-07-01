@@ -1,4 +1,4 @@
-from awscrt import io, mqtt, auth, http
+from awscrt import io, mqtt
 from awsiot import mqtt_connection_builder
 from time import sleep
 from json import loads
@@ -89,8 +89,7 @@ def on_resubscribe_complete(resubscribe_future):
 def on_message_received(topic, payload, **kwargs):
     print("Received message from topic '{}': {}".format(topic, payload))
     try:
-        json_message = payload.decode('utf8').replace("'", '"')
-        data = loads(json_message)
+        data = loads(payload)
         name = data["name"]
         imageReader(name)
     except Exception as e:
