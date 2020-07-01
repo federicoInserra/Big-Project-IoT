@@ -49,14 +49,14 @@ The Lambda function is a function in Node.js 12.x that issues a query on the dat
 
 ### Part 1: MbedOS 6
 
-To program the STM32 board, we used MbedOS 6 che con le sue API ci permette di eseguire semplicemente le quattro operazioni principali che deve compiere la board:
+To program the STM32 board, we used MbedOS 6 which with its API allows us to simply perform the four main operations that the board must perform:
 
 1. Connettersi ad Internet usando il modulo Wi-Fi.
 2. Connettersi al broker MQTT su AWS IoT usando MQTT over SSL.
 3. Leggere il contenuto della EEPROM NFC.
 4. Pubblicare il contenuto della EEPROM NFC su un topic MQTT.
 
-Per il punto 1 basta impostare i campi `wifi-ssid` e `wifi-password` nel file `mbed_app.json` e nel `main.cpp`
+For point 1 just set the fields `wifi-ssid` and `wifi-password` in the file `mbed_app.json`, then in the `main.cpp` we can connect to the internet using our default network interface.
 
 ```
 WiFiInterface *network;
@@ -64,7 +64,7 @@ network = WiFiInterface::get_default_instance();
 int ret = network->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
 ```
 
-I file `MQTT_server_setting.h` e `MQTT_credentials.h` contengono rispettivamente i parametri del broker MQTT e le chiavi necessarie per instaurare la connessione. Quindi per instaurare una connessione dobbiamo aprire un `TLSSocket` nel seguente modo:
+The `MQTT_server_setting.h` and `MQTT_credentials.h` files contain respectively the parameters of the MQTT broker and the keys needed to establish the connection. So to establish a connection we have to open a `TLSSocket` in the following way:
 
 ```
 TLSSocket *socket = new TLSSocket;
@@ -78,7 +78,7 @@ ret = socket->set_client_cert_key(SSL_CLIENT_CERT_PEM, SSL_CLIENT_PRIVATE_KEY_PE
 ret = socket->connect(addr);
 ```
 
-E poi possiamo inviare un MQTT CONNECT packet scrivendo sul socket appena creato.
+And then we can send an MQTT CONNECT packet by writing on the newly created socket.
 
 ```
 MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
@@ -89,7 +89,7 @@ mqttClient = new MQTTClient(socket);
 int rc = mqttClient->connect(data);
 ```
 
-Per leggere il contenuto del tag NFC possiamo usare le librerie per la gestione dei tag NFC basati sulla serie M24SR e NFC Data Exchange Format (NDEF). Dobbiamo prima di tutto inizializzare il tag, impostare le callback ed aprire la sessione.
+To read the content of the NFC tag we can use the NFC tag management libraries based on the M24SR series and NFC Data Exchange Format (NDEF). We must first initialize the tag, set the callbacks and open the session.
 
 ```
 I2C i2cChannel(NFC_I2C_SDA_PIN, NFC_I2C_SCL_PIN);
@@ -102,7 +102,7 @@ tag.set_callback(&NDefReadCallback);
 tag.open_session();
 ```
 
-Siamo ora pronti per pubblicare sul topic MQTT il messaggio contenete come payload il contenuto del tag NFC.
+We are now ready to publish on the MQTT topic the message containing as payload the content of the NFC tag.
 
 ```
 tag.open_session()
@@ -172,9 +172,8 @@ In the left navigation menu choose Secure and then Policies. From here click on 
 ```
 
 #### AWS RDS
-Per creare un livello di persistenza dei nostri dati, abbiamo optato per un database SQL su AWS RDS, usando PostgresSQL 10 come engine, sfruttando come template di creazione il ‌*Free Tier* che nonostante sia il meno potente, e' comunque abbastanza per la mole di dati che deve gestire. 
-/screencapture-eu-west-3-console-aws-amazon-rds-home-2020-06-30-16_10_57.png
-Salviamo il nome del database, l'host, la porta, la password e l'utente che ci serviranno in futuro per la Lambda function e per la dashboard.
+To add a level of persistence of our data, we opted for an SQL database on AWS RDS, using PostgresSQL 10 as the engine, using the *Free Tier* as the creation template, which despite being the least powerful, is still enough for the amount of data it has to handle. 
+Let's save the database name, host, port, password and user we will need in the future for the Lambda function and the dashboard.
 
 
 #### AWS Lambda
@@ -232,8 +231,7 @@ Before testing the code we have to check if the Lambda function can connect to t
 
 #### Bring all them together 
 We have successfully linked AWS Lambda with AWS RDS, how can we trigger this Lambda every time a message is published over MQTT? 
-To do it we will use an *AWS IoT rule* who listen for every message that arrives for a certain topic and then 
-does an action with this message. In this case the action will be to invoke the Lambda function precedentemente creata.
+To do it we will use an *AWS IoT rule* who listen for every message that arrives for a certain topic and then does an action with this message. In this case the action will be to invoke the Lambda function precedentemente creata.
 On the AWS IoT console click Act->Rules->Create, here we have to perform a query using an [SQL-like syntax](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html).
 We want to save all the *MQTT payload*, plus a *timestamp* and the *client id* of the publisher. La query dunque sarà 
 
@@ -246,7 +244,48 @@ The action will take as input the output of this query, in JSON format. Using th
 
 ### Part 4: NFC on the Web: WebNFC APIs
 
+Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possibile to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only  in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of read/write NFC tags.
+On a website serving in HTTPS (HTTP will not work) we will create a function triggered by an HTML5 `<button>` that instantiate an `NDEFWriter` object and start the writing process. Writing a text string to an NFC tag is straightforward, in our case the text string will be the name of the selected statue.
+
+```
+async function write(event) {
+  let name = event.srcElement.name;
+  try {
+    const writer = new NDEFWriter();
+    textField.innerHTML = "Move your smartphone closer to the receiver";
+    await writer.write(name).then(() => {
+      textField.innerHTML = "Message sent successfully";
+    });
+  } catch (error) {
+    textField.innerHTML = `Error: ${error}`;
+  }
+}
+```
+
+We can add this `write` function as event listener for our buttons.
+
+```
+const buttons = document.querySelectorAll("body > div > button");
+const textField = document.getElementById("message");
+buttons.forEach((button) => {
+  button.addEventListener("click", write);
+});
+```
+
+The name written on the NFC tag is the name of the HTML button component.
+
+```
+<button class="write" name="ca" />
+```
+
 ### Part 5: The Dashboard on Grafana
+
+To monitor and visualize all the messages stored in the database we built a Dashboard using [Grafana](https://grafana.com/). Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards teams and foster a data driven culture. You can [install](https://grafana.com/grafana/download) it locally, host it online on your severs, or on your preferred PasS. You can also use [Grafana Cloud](https://grafana.com/products/cloud/) that with its *Starter* tier allow you to test the platform without to spend anything.
+Once created an account the first thing to do is add a data source, in our case the PostgresSQL 10 database on AWS RDS, always remembering to add the ip address that is trying to connect to the database to you VPC on AWS as inbound rule.
+
+We can perform query on the database and visualize the results using beautiful widgets. The query builder tool allows us to write powerful query without mess-up with the SQL syntax.
+
+/Schermata 2020-06-30 alle 23.34.47.png
 
 ## Evaluation of the system
 
