@@ -46,5 +46,6 @@ Since the 2nd delivery we implemented the following features:
 - Possibility to implement an application instead of using objects
 - The latency of the image with a new library
 ## A brief list of the functionality that is still missing and that we did not manage to evaluate.
-- The interaction with real objects
-- The integrated screen of the board
+- The interaction with real objects because of the NFC sensor on the board was limited and didn't allow us to use tags to write on it.
+- The integrated screen of the board, we used a substitute because the board in our possession was 
+- We didn't add as many images as we wanted because there are few images available online
