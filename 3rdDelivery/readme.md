@@ -256,7 +256,7 @@ The action will take as input the output of this query, in JSON format. Using th
 
 #### AWS S3
 
-In order to improve the scalability of the system we store all the images ready to be displayed on a S3 Bucket, facilmente creabile from the AWS Dashboard ed incluso nel AWS free tier. Una volta caricate le immagine basterà dunque una semplice GET HTTP per scaricare e salvare l'immagine in locale.
+In order to improve the scalability of the system we store all the images ready to be displayed on a S3 Bucket,  easily created from the AWS Dashboard and included in the AWS free tier. Once the images are loaded, a simple HTTP GET will be enough to download and save the image locally.
 
 ### Part 3: Python on the Raspberry
 
