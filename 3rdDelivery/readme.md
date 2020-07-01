@@ -277,6 +277,28 @@ data = json.loads(payload)
 name = data["name"]
 ```
 
+Using Python 3 `str.format` we can build the URL of the image and request it from our S3 bucket using `requests.get`.
+
+```
+filename = "{}.jpg".format(name)
+img_url = "{}/{}".format(S3_URL, filename)
+r = get(img_url, stream=True)
+```
+
+If the image is not present locally, we can save it using the standard I/O library.
+
+```
+r.raw.decode_content = True
+with open(fullpath, "wb") as f:
+  f.write(r.content)
+```
+
+Using `Pillow` we can now display the image.
+
+```
+img = Image.open(filename)
+```
+
 ### Part 4: NFC on the Web: WebNFC APIs
 
 Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possible to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of reading/writing NFC tags.
