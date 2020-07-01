@@ -32,7 +32,7 @@ on which to show the image of the hologram, we used a different architecture to 
 
 The architecture is represented here.
 
-<Image>
+![](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593595907/arch_zzrzup.png)
 
 The Raspberry Pi is subscribed to the MQTT topic and, when a message arrives, we check if the image is in the main memory, if not, the Raspberry executes an HTTP request to the S3 bucket on AWS and saves the image in main memory.
 
@@ -134,7 +134,7 @@ the AWS IoT Console. We are now ready to register a new _Thing_ using the web in
 AWS uses certificate-based authentication and authorization
 to create a secure connection between the device and AWS IoT Core. The easiest way to do that is to use the **"One-click certificate creation"**
 
-/Screenshot 2020-06-30 at 16.20.04.png
+![](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593596041/iotcert_hczr05.png)
 
 You can download the certificate for the thing, the private key, and the root CA for AWS IoT. (You do not need the public key). Save each of them to your computer, choose Activate and then click on Done. Now we need to create a Policy for our thing. AWS IoT Core policies are used to authorize your device to perform AWS IoT Core operations, such as subscribing or publishing to MQTT topics. Your device presents its certificate
 when sending messages to AWS IoT Core. To allow your device to perform AWS IoT Core operations, you must create an
@@ -174,6 +174,8 @@ In the left navigation menu choose Secure and then Policies. From here click on 
 
 To add a level of persistence of our data, we opted for an SQL database on AWS RDS, using PostgresSQL 10 as the engine, using the _Free Tier_ as the creation template, which despite being the least powerful, is still enough for the amount of data it has to handle.
 Let's save the database name, host, port, password, and user we will need in the future for the Lambda function and the dashboard.
+
+![](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593596055/dblong_payuui.png)
 
 Using the SQL client that we prefer we can connect to the database and create the `things` table where we will save all the messages that arrive on AWS IoT.
 
@@ -342,7 +344,7 @@ Once created an account the first thing to do is add a data source, in our case 
 
 We can perform a query on the database and visualize the results using beautiful widgets. The query builder tool allows us to write powerful queries without mess-up with the SQL syntax.
 
-/Schermata 2020-06-30 alle 23.34.47.png
+![](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593596034/grafana_jhl3pw.png)
 
 ## Evaluation of the system
 
