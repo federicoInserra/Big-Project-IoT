@@ -125,7 +125,12 @@ delete[] buf;
 
 On the AWS IoT console, by subscribing to the topic on which we posted the message we can see the message that will arrive in JSON as {"name": "OBJECT_NAME"}.
 
+All the MbedOS code can be found [here](https://github.com/federicoInserra/Big-Project-IoT/tree/master/3rdDelivery/mbed-code).
+
 ### Part 2: The setup on AWS
+
+This is the architecture we're going to build on AWS.
+![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597337/arch_bc0npx.png)
 
 #### AWS IoT
 
@@ -301,6 +306,8 @@ Using `Pillow` we can now display the image.
 img = Image.open(filename)
 ```
 
+All the Python code can be found [here](https://github.com/federicoInserra/Big-Project-IoT/tree/master/3rdDelivery/Pyhton)
+
 ### Part 4: NFC on the Web: WebNFC APIs
 
 Since the STM32 B-L475E-IOT01A NFC module works only in the NFC reader/writer mode, it's not possible to read the signal from an NFC TAG on an object, we have to find a way to let the user write the requested hologram to the board. Both [Google](https://developer.android.com/guide/topics/connectivity/nfc) and [Apple](https://developer.apple.com/documentation/corenfc) provides NFC API to use the NFC module present in many modern smartphones, but we preferred to use the [Web NFC](https://w3c.github.io/web-nfc/) API since they allow to interact with the NFC inside the browser, without users having to download an app. These APIs are currently in draft and are supported only in Chrome/Chromium 81+, enabling the `#experimental-web-platform-features` flag in `chrome://flags`, but they allow to quickly develop website capable of reading/writing NFC tags.
@@ -336,6 +343,8 @@ The name written on the NFC tag is the name of the HTML button component.
 ```
 <button class="write" name="ca" />
 ```
+
+All the HTML and Javascript code can be found [here](https://github.com/federicoInserra/Big-Project-IoT/tree/master/3rdDelivery/webnfc) a live website hosted using GitHub Pages can be accessed [here](https://lrazovic.github.io/web-nfc-museum/)
 
 ### Part 5: The Dashboard on Grafana
 

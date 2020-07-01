@@ -31,13 +31,12 @@ Object with NFC Tag <--NFC--> STM32 Board <--MQTT--> AWS <--MQTT --> STM32 Board
                                                       |
                                                       v
                                                  SQL Database --> Dashboard   
-![Architecture](/Users/lrazovic/projects/Big-Project-IoT/3rdDelivery/images/arch.png)
+![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597294/IoT_V2_ixypdp.png)
 
 # Evaluation Architecture
 
 ****
 The application writes on the NFC tag that is positioned on the statue. It's composed by a simple user interface that shows images of the statues and when the user taps on such image the app will show a pop up that tell the user to approach the board near the statue.
-
 ****
 
 Due to lack of resources we are going to try the code on a different architecture. The first part of the architecture is the same, but we have a smartphone application, instead of objects, that writes on the NFC tag on the board and the board publishes a message on the MQTT topic containing the text record of the NFC tag. AWS IoT receive this message, and the Raspberry Pi that is subscribed to the topic receive the message sent from the STM32 board. The Raspberry Pi is connected to a display that will show the image that has as identifier the message received. If the image is not present locally a request to AWS is performed asking for the image, as soon the image arrives it is saved and then it's shown.
@@ -49,7 +48,7 @@ For our purpose, the most important features are:
 * Dynamic NFC tag based on M24SR
 * ISM43362 Wi-Fi module 
 
-Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we can't use an object with an NFC tag on it, but we have to use a Smartphone that can act as reader/writer to write on the NFC EEPROM.
+Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we can't use an object with an NFC tag on it, but we have to use a Smartphone that can act as a reader/writer to write on the NFC EEPROM. The smartphone can write on the NFC tag using the WEB NFC APIs.
 
 ## High-level scheme
 
@@ -58,7 +57,7 @@ Smartphone <--NFC--> IoT Board <--MQTT--> AWS <--MQTT--> Raspberry Pi + Display
                                            |
                                            v
                                     SQL Database --> Dashboard   
-![Architecture](/Users/lrazovic/projects/Big-Project-IoT/3rdDelivery/images/arch.png)
+![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597337/arch_bc0npx.png)
 
 ## Old Document
 Here you can find the old architecture version [Old document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/Architecture.md)

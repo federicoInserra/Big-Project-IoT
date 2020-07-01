@@ -25,6 +25,7 @@ def showImage(filename):
     img = Image.open(filename)
     fit_center(img)
 
+
 # Open the image
 def imageReader(name, localpath=LOCAL_PATH):
     filename = "{}.jpg".format(name)
