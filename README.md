@@ -12,12 +12,10 @@ With the help of [Elisa L'Angiocola](https://www.linkedin.com/in/elisa-l-angioco
 
 The aim of this project is to add more interactivity to the museum in order to involve visitors more during the visit and to allow the museum curators to get useful information about the most interesting rooms.
 
-
-
-The idea is to create a system that through the NFC activates the display of the board and an hologram comes out with a colorized statue. The interaction of users with the statue could be useful for museum curators to valuate the engagement os a certain statue. 
+The idea is to create a system that through the NFC activates the display of the board and an hologram comes out with a colorized statue. The interaction of users with the statue could be useful for museum curators to valuate the engagement os a certain statue.
 This data will be displayed on a dashboard accessible through an URL.
 
-The board uses the MQTT protocol to communicate with the cloud infrastructure and when receives the data it will show the image of the hologram. 
+The board uses the MQTT protocol to communicate with the cloud infrastructure and when receives the data it will show the image of the hologram.
 
 ## First Delivery Documents
 
@@ -31,6 +29,7 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [Evaluation results](https://lrazovic.typeform.com/report/UzEcbW/mYDi41SiC8Q4fGKD)
 
 ## Second Delivery Documents
+
 - [Second Delivery Document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/2nd%20delivery.md)
 - [Design document](/2ndDelivery/Design.md)
 - [Architecture document](/2ndDelivery/Architecture.md)
@@ -41,10 +40,11 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [28/05 presentation](https://docs.google.com/presentation/d/1SSP5tCvUbp5Dkc9KxLCV6OZQ3zQDs7Ixy6jjmiDCO1w/edit?usp=sharing)
 
 ## Third Delivery Documents
-- [Third Delivery Document]()
-- [Design document]()
-- [Architecture document]()
-- [Evaluation document]()
-- [Blog Post]()
-- [Demonstration of the project]()
+
+- [Third Delivery Document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/3rdDelivery/3rdDelivery.md)
+- [Design document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/3rdDelivery/Design.md)
+- [Architecture document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/3rdDelivery/Architecture.md)
+- [Evaluation document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/3rdDelivery/Evaluation.md)
+- [Blog Post](https://medium.com/@LRazovic/readme-116eee030173)
+- [Demonstration of the project](https://www.youtube.com/watch?v=eRHdQGIZs14&feature=youtu.be)
 - [Final Presentation]()

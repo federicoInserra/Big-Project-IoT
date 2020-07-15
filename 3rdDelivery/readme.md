@@ -1,4 +1,4 @@
-# Post
+# Blog Post
 
 ## The Idea
 
@@ -382,6 +382,7 @@ We also considered the user experience as a key point for the success of the sys
 We will manage the first two once we install the Castgram in a museum, for the third one we asked users that tested Castgram to rate the system under different aspects, ease of use, aesthetic and general impression of the system. We scored an average grade 9/10 on the aesthetic, average grade 7/10 on ease of use, and average grade 8/10 on the general impression.
 
 ## Conclusions
+
 Starting from a relatively simple problem we have built a system that allows museum visitors to have a more digital and engaging experience.
 Using different tools (boards, objects with nfc, statues, AWS cloud ..) and making them interact with each other we obtained a product that allows users to see the statues as they once were, with their original colors and all the missing pieces, through the use of holograms.
 
