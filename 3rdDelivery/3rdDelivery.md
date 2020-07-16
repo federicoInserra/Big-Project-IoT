@@ -44,10 +44,10 @@ We added a new image of a statue to our repository.
 
 Since the 2nd delivery we implemented the following features:
 
-- Set up the SQL database
+- Set up a PostgresSQL database
 - Created an S3 bucket to store images
 - Created a script to download the image if isn't in the main memory and that shows the image
-- Created a dashboard to inform curators about the frequency of activation of a statue
+- Created a dashboard on Grafana to inform curators about the frequency of activation of a statue
 - Lambda function to save MQTT messages inside the Database
 - Updated the code of the board to MbedOS 6.1
 - Updated Python AWS IoT SDK to v2
