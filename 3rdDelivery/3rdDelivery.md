@@ -50,7 +50,7 @@ Since the 2nd delivery we implemented the following features:
 - Created a dashboard to inform curators about the frequency of activation of a statue
 - Lambda function to save MQTT messages inside the Database
 - Updated the code of the board to MbedOS 6.1
-- Updated AWS IoT SDK to v2
+- Updated Python AWS IoT SDK to v2
 
 ## Brief presentation of the evaluation conducted since the 2nd delivery
 
