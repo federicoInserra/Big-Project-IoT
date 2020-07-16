@@ -4,7 +4,7 @@
 
 During the second delivery, we received positive comments related to the project idea and the use of IoT, and we were very pleased considering that we had started from scratch with a new idea.
 
-The main criticisms we received were :
+The main criticisms we received were:
 
 - The fact that it didn't make much sense that the hologram wasn't always visible but that it needed user interaction to make it appear.
   Also, the interactions using the objects were a bit forced.
