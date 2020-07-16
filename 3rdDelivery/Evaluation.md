@@ -175,7 +175,7 @@ Programmable NFC stickers = 10€
 raspberry pi 3 = 30€
 monitor hdmi 5" = 35€
 
-TOTAL = 132€ + approximate monthly AWS cost < 1€
+TOTAL = 132€ + approximate monthly AWS cost ~ 10€
 
 Cost of the real system:
 Board = 55€
@@ -185,7 +185,7 @@ Screen and HDMI adapter = 55€ + 28€
 Programmable NFC stickers = 10€
 Simple objects representative of the statues: Depends on the material from 2 to 15€ per object approx.
 
-TOTAL = Around 195€ + Approximate monthly AWS cost < 1€
+TOTAL = Around 195€ + Approximate monthly AWS cost ~ 10€
 
 ### Reactivity of the system
 
