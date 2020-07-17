@@ -26,7 +26,7 @@ The board has a Wi-Fi module that allows the connection to the internet. We expe
 
 ## High-level scheme
 
-![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597294/IoT_V2_ixypdp.png)
+![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1594972563/IoT_V2_odok0w.png)
 
 ## Evaluation Architecture
 
@@ -45,7 +45,7 @@ Considering that the M24SR is just a Dynamic NFC tag and not an NFC reader, we c
 
 ## High-level scheme
 
-![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1593597337/arch_bc0npx.png)
+![Architecture](https://res.cloudinary.com/dhgghkuk3/image/upload/v1594972561/IoT_2_eit2ix.png)
 
 ### Old Document
 
