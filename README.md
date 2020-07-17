@@ -47,4 +47,4 @@ The board uses the MQTT protocol to communicate with the cloud infrastructure an
 - [Evaluation document](https://github.com/federicoInserra/Big-Project-IoT/blob/master/3rdDelivery/Evaluation.md)
 - [Blog Post](https://medium.com/@LRazovic/readme-116eee030173)
 - [Demonstration of the project](https://www.youtube.com/watch?v=eRHdQGIZs14&feature=youtu.be)
-- [Final Presentation]()
+- [Final Presentation](https://docs.google.com/presentation/d/14oI_eK2-5VlHxX8rxKYP7BC1MaoIP8G3rbgEGpwDflU/edit?usp=sharing)
