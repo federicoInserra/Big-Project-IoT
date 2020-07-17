@@ -22,4 +22,4 @@ Melinda has spent her last six months in Rome and is enthusiastic about how much
 
 ### Older version
 
-- [Design at first delivery](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/Design.md)
+- [Design at second delivery](https://github.com/federicoInserra/Big-Project-IoT/blob/master/2ndDelivery/Design.md)
